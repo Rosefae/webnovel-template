@@ -1,0 +1,21 @@
+@import 'global';
+@import 'layout';
+
+body{
+    $progress-bar-width: 2px;
+    background-image: linear-gradient(to right top, $foreground 50%, $background 50%);
+    background-size: 100% calc(100% - 100vh + #{$progress-bar-width});
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    z-index:1;
+    &::before{
+        content:"";
+        position: fixed;
+        top:0;
+        left:0;
+        bottom:$progress-bar-width;
+        right:0;
+        background: $background;
+        z-index: -1;
+    }
+}

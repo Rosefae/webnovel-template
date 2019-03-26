@@ -1,0 +1,45 @@
+$foreground: var(--foreground, #000);
+$background: var(--background, #fff);
+$body-font: 'Crimson Text', serif;
+$ui-font: 'Raleway', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Raleway');
+
+html{
+    margin:0;
+    padding:0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    --foreground: #000;
+    --background: #fff;
+    &.darkmode{
+        --foreground: #fff;
+        --background: #000;
+    }
+
+    position: relative;
+    margin:0;
+    padding:0;
+    width:100vw;
+    min-height: 100vh;
+
+    color: $foreground;
+    font-family: $body-font;
+}
+
+a{
+    text-decoration: none;
+    font-family: $ui-font;
+}
+
+p{
+    line-height:1.5;
+    text-indent: 2em;
+    margin-block-start: 1.3em;
+    margin-block-end: 1.3em;
+}

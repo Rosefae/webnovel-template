@@ -1,0 +1,12 @@
+body{
+    padding: 0 10vw;
+    $min-width: 360px;
+    $max-width: 1000px;
+
+    @media screen and (max-width: #{$min-width/0.8}){
+        padding: 0 calc((100vw - #{$min-width})/2);
+    }
+    @media screen and (min-width: #{$max-width/0.8}){
+        padding: 0 calc((100vw - #{$max-width})/2);
+    }
+}
