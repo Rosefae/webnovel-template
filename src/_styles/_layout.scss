@@ -6,6 +6,9 @@ body{
     @media screen and (max-width: #{$min-width/0.8}){
         padding: 0 calc((100vw - #{$min-width})/2);
     }
+    @media screen and (max-width: #{$min-width + 20px}){
+        padding: 0 10px;
+    }
     @media screen and (min-width: #{$max-width/0.8}){
         padding: 0 calc((100vw - #{$max-width})/2);
     }

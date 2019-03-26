@@ -1,8 +1,9 @@
 <!doctype html>
 <html>
     <head>
-        <title>{{ title }} | {{ global.title }}</title>
+        {% include partials/headstuff %}
         <link rel="stylesheet" type="text/css" href="{{ pathtoroot }}_styles/chapters.css">
+        <title>{{ title }} | {{ global.title }}</title>
     </head>
     <body>
         {{ content }}
