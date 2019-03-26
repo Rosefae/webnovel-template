@@ -4,7 +4,10 @@
   "description": "A template for webnovels",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "npx eleventy --serve",
+    "scss": "sass --watch src/_styles:dist/_styles",
+    "start": "concurrently -k \"npm:serve\" \"npm:scss\""
   },
   "repository": {
     "type": "git",
@@ -18,5 +21,8 @@
   "homepage": "https://github.com/Rosefae/webnovel-template#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.7.1"
+  },
+  "dependencies": {
+    "concurrently": "^4.1.0"
   }
 }

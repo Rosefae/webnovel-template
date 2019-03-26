@@ -2,4 +2,4 @@
 
 A template for webnovels using Eleventy.
 
-To serve to port 8080: `npx eleventy --serve`
+`npm start` serves to port 8080
