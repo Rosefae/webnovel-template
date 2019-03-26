@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "npx eleventy --serve",
     "scss": "sass --watch src/_styles:dist/_styles",
-    "start": "concurrently -k \"npm:serve\" \"npm:scss\""
+    "start": "concurrently -k -c green.dim,cyan.dim \"npm:serve\" \"npm:scss\""
   },
   "repository": {
     "type": "git",
