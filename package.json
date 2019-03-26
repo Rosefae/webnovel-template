@@ -1,0 +1,22 @@
+{
+  "name": "webnovel-template",
+  "version": "1.0.0",
+  "description": "A template for webnovels",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rosefae/webnovel-template.git"
+  },
+  "author": "Rose Liu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rosefae/webnovel-template/issues"
+  },
+  "homepage": "https://github.com/Rosefae/webnovel-template#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.7.1"
+  }
+}
