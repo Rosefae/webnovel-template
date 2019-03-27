@@ -3,6 +3,13 @@ module.exports = function(eleventyConfig){
     eleventyConfig.addPassthroughCopy("src/_scripts");
     eleventyConfig.addPassthroughCopy("src/_assets");
 
+    eleventyConfig.addCollection("chaptersFlatList", function(collection){
+        // return collection.getFilteredByGlob("**/chapters/*").sort(function(a,b){
+        //     return a.data.chapter.number - b.data.chapter.number;
+        // });
+        return collection.getFilteredByGlob("**/chapters/*");
+    });
+
     eleventyConfig.addFilter("romanNumerals", function(n){
         let roman = arabicToRoman(n);
         return roman;
@@ -20,6 +27,30 @@ module.exports = function(eleventyConfig){
         passthroughFileCopy: true
     }
 }
+
+// function getTieredChapterList(chapters){
+//     // takes a SORTED array of chapters
+//     let output = [];
+//     for(i=0;i<chapters.length;i++){
+//         if (isSuperChapter(chapters[i])){
+//             let newSuperChapter = {
+//                 chapter: chapters[i],
+//                 children: []
+//             }
+//             output.push(newSuperChapter);
+//         }
+//         else{
+//             output[output.length-1].children.push(chapters[i]);
+//         }
+//     }
+
+//     function isSuperChapter(ch){
+//         if (ch.data.chapter.number==0 || !Number.isInteger(ch.data.chapter.number)){
+//             return true;
+//         }
+//         else return false;
+//     }
+// }
 
 function arabicToRoman(n){
     var numberSymbols = [

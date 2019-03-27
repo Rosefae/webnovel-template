@@ -1,6 +1,6 @@
 ---
 chapter:
-    number: 27
+    number: 26
     title: Lorem Ipsum
 ---
 

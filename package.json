@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "once": "npx eleventy",
     "serve": "npx eleventy --serve",
+    "oncescss": "sass src/_styles:dist/_styles",
     "scss": "sass --watch src/_styles:dist/_styles",
     "start": "concurrently -k -c green.dim,cyan.dim \"npm:serve\" \"npm:scss\""
   },
