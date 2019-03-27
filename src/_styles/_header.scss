@@ -1,0 +1,72 @@
+header{
+    label{
+        cursor:pointer;
+    }
+    .menubtn{
+        $size: 44px;
+        display:inline-block;
+        height: $size;
+        width: $size;
+        outline:none;
+        position:relative;
+        vertical-align: middle;
+        padding: 0 calc((#{$size} - 1em)/2);
+        margin-left: calc((#{$size} - 1em)/-2);
+        margin-right: 10px;
+
+        transition: color 0.3s ease;
+
+        i, i::before{
+            line-height: $size;
+        }
+        
+        &::before{
+            content:'';
+            display: block;
+            position: absolute;
+            z-index:-1;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            background:$foreground;
+            border-radius: 50%;
+            transform: scale(0);
+            opacity: 0;
+            transition: 0.3s ease;
+        }
+        &:hover, &:focus{
+            color:$background;
+            &::before{
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        &+input+nav{
+            display:none;
+        }
+        &+input:checked+nav{
+            display:block;
+        }
+    }
+
+    nav{
+        position:fixed;
+        left:0;
+        top:0;
+        bottom:0;
+        box-sizing:content-box;
+        width: 27em;
+        max-width:100%;
+        z-index: 10;
+        background:$background;
+        padding-left:inherit;
+        padding-right:10px;
+        overflow: scroll;
+    }
+    .booktitle{
+        display:inline-block;
+        vertical-align:middle;
+    }
+}

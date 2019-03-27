@@ -1,6 +1,9 @@
 <header>
-    <h1 class="booktitle">{{ global.title }}</h1>
+    <label class="menubtn" for="menubtn-secretcheckbox" role="button" tabindex="0"><i class="fas fa-bars"></i></label>
+    <input type="checkbox" id="menubtn-secretcheckbox" hidden>
     <nav aria-label="Table of Contents" class="tableofcontents">
-        bluhhh
+        <label for="menubtn-secretcheckbox">x</label>
+        data test: {{ chapter.title }}
     </nav>
+    <h1 class="booktitle">{{ global.title }}</h1>
 </header>
