@@ -11,6 +11,7 @@ Using Liquid for the layout just because the markdown is pre-processed with Liqu
 * Javascript to make menu behave as expected with keyboard controls
 * Test accessibility
 * Javascript to enable dark mode.
+* Tiered table of contents (eg Part 1: Chapter X)
 
 ## scripts
 
