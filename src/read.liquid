@@ -1,0 +1,28 @@
+---
+pagination:
+    data: collections.rawChapters
+    size: 1
+    addAllPagesToCollections: true
+permalink: read/{{pagination.items[0].data.number}}/
+tags: pagedChapters
+---
+
+<!doctype html>
+<html>
+{% for chapter in pagination.items %}
+    <head>
+        {% include partials/headstuff %}
+        <link rel="stylesheet" type="text/css" href="../../_styles/chapters.css">
+        <title>{{ chapter.data.title }} | {{ global.title }}</title>
+    </head>
+    <body>
+        {% include partials/header %}
+        <main>
+            <h1 class="chaptertitle">
+                Chapter {{ chapter.data.number | romanNumeralsAccessible }} &mdash; {{ chapter.data.title }}
+            </h1>
+            {{ chapter.templateContent }}
+        </main>
+    </body>
+{% endfor %}
+</html>
