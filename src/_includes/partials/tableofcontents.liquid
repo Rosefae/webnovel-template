@@ -1,6 +1,5 @@
-<ul>
+<ul class="tableofcontents">
     {%- for chapter in collections.chaptersFlatList -%}
-        <li>{{ chapter.url }}</li>
+        <li {% if page.url == chapter.url %}class="currentpage"{% endif %}><a href="{{ chapter.url }}">{{ chapter.data.chapter.number | romanNumeralsAccessible }}: {{ chapter.data.chapter.title }}</a></li>
     {%- endfor -%}
 </ul>
-test

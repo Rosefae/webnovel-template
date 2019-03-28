@@ -4,10 +4,9 @@ module.exports = function(eleventyConfig){
     eleventyConfig.addPassthroughCopy("src/_assets");
 
     eleventyConfig.addCollection("chaptersFlatList", function(collection){
-        // return collection.getFilteredByGlob("**/chapters/*").sort(function(a,b){
-        //     return a.data.chapter.number - b.data.chapter.number;
-        // });
-        return collection.getFilteredByGlob("**/chapters/*");
+        return collection.getFilteredByGlob("**/chapters/*").sort(function(a,b){
+            return a.data.chapter.number - b.data.chapter.number;
+        });
     });
 
     eleventyConfig.addFilter("romanNumerals", function(n){

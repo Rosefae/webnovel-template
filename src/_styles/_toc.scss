@@ -1,0 +1,26 @@
+.tableofcontents{
+    list-style-type: none;
+
+    a:hover, a:focus{
+        position: relative;
+        &::before{
+            $arrow-size: 5px;
+            content:'';
+            display: block;
+            box-sizing:content-box;
+            height:0;
+            width:0;
+            border-top:$arrow-size transparent solid;
+            border-left:$arrow-size $foreground solid;
+            border-bottom:$arrow-size transparent solid;
+            position: absolute;
+            right:calc(100% + 5px);
+            top: calc(50% - #{$arrow-size});
+        }
+    }
+
+    .currentpage a{
+        font-weight: 600;
+        opacity: 1;
+    }
+}
