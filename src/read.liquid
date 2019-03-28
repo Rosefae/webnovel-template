@@ -12,17 +12,19 @@ tags: pagedChapters
 {% for chapter in pagination.items %}
     <head>
         {% include partials/headstuff %}
-        <link rel="stylesheet" type="text/css" href="../../_styles/chapters.css">
+        <link rel="stylesheet" type="text/css" href="../../_styles/read.css">
         <title>{{ chapter.data.title }} | {{ global.title }}</title>
     </head>
     <body>
         {% include partials/header %}
+        {% include partials/prevnext %}
         <main>
             <h1 class="chaptertitle">
                 Chapter {{ chapter.data.number | romanNumeralsAccessible }} &mdash; {{ chapter.data.title }}
             </h1>
             {{ chapter.templateContent }}
         </main>
+        {% include partials/prevnext %}
     </body>
 {% endfor %}
 </html>

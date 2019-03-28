@@ -1,0 +1,12 @@
+<nav class="prevnext">
+    <span class="previous">
+        {%- if pagination.previousPageHref -%}
+        <a href="{{pagination.previousPageHref}}">prev</a>
+        {%- endif -%}
+    </span>
+    <span class="next">
+        {%- if pagination.nextPageHref -%}
+        <a href="{{pagination.nextPageHref}}">next</a>
+        {%- endif -%}
+    </span>
+</nav>

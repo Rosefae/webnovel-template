@@ -1,6 +1,7 @@
 @import 'toc';
 
 header{
+    margin-top:20px;
     .btn{
         $size: 44px;
         cursor:pointer;
@@ -64,6 +65,7 @@ header{
         background:$background;
         padding-left:inherit;
         padding-right:10px;
+        padding-top: 20px;
         overflow: scroll;
     }
     .booktitle{
