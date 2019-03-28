@@ -3,13 +3,13 @@
     <head>
         {% include partials/headstuff %}
         <link rel="stylesheet" type="text/css" href="{{ pathtoroot }}_styles/chapters.css">
-        <title>{{ chapter.title }} | {{ global.title }}</title>
+        <title>{{ title }} | {{ global.title }}</title>
     </head>
     <body>
         {% include partials/header %}
         <main>
             <h1 class="chaptertitle">
-                Chapter {{ chapter.number | romanNumeralsAccessible }} &mdash; {{ chapter.title }}
+                Chapter {{ number | romanNumeralsAccessible }} &mdash; {{ title }}
             </h1>
             {{ content }}
         </main>

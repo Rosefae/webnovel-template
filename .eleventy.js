@@ -3,9 +3,9 @@ module.exports = function(eleventyConfig){
     eleventyConfig.addPassthroughCopy("src/_scripts");
     eleventyConfig.addPassthroughCopy("src/_assets");
 
-    eleventyConfig.addCollection("chaptersFlatList", function(collection){
+    eleventyConfig.addCollection("rawChapters", function(collection){
         return collection.getFilteredByGlob("**/chapters/*").sort(function(a,b){
-            return a.data.chapter.number - b.data.chapter.number;
+            return a.data.number - b.data.number;
         });
     });
 
