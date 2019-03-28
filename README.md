@@ -6,6 +6,12 @@ A template for webnovels using Eleventy.
 
 Using Liquid for the layout just because the markdown is pre-processed with Liquid by default anyway.
 
+## todo
+
+Javascript to make menu behave as expected with keyboard controls
+Test accessibility
+Javascript to enable dark mode.
+
 ## scripts
 
 `serve`: Runs `eleventy --serve`. Compiles templates in `src` into `dist`, as well as copying over `_assets` and `_scripts` as-is. Also watches and serves the site to `localhost:8080`.
