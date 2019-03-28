@@ -1,7 +1,12 @@
 .tableofcontents{
     list-style-type: none;
+    padding-inline-start: 44px;
 
-    a:hover, a:focus{
+    li{
+        margin: 0.3em 0;
+    }
+
+    a{
         position: relative;
         &::before{
             $arrow-size: 5px;
@@ -16,6 +21,18 @@
             position: absolute;
             right:calc(100% + 5px);
             top: calc(50% - #{$arrow-size});
+
+            opacity: 0;
+            transform: translateX(3px);
+            transition: 0.1s ease-out;
+            transition-property: opacity, transform;
+        }
+    }
+
+    a:hover, a:focus{
+        &::before{
+            opacity: 1;
+            transform: translateX(0);
         }
     }
 

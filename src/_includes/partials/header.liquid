@@ -1,8 +1,10 @@
 <header>
-    <label class="menubtn" for="menubtn-secretcheckbox" role="button" tabindex="0"><i class="fas fa-bars"></i></label>
+    <label class="btn menubtn" for="menubtn-secretcheckbox" role="button" tabindex="0"><i class="fas fa-bars" aria-label="Menu"></i></label>
     <input type="checkbox" id="menubtn-secretcheckbox" hidden>
-    <nav aria-label="Table of Contents" class="tableofcontents">
-        <label for="menubtn-secretcheckbox">x</label>
+    <nav aria-label="Table of Contents">
+        <label class="btn closebtn" for="menubtn-secretcheckbox" role="button" tabindex="0"><i class="fas fa-times" aria-label="Close"></i></label>
+        <h1 class="booktitle">{{ global.title }}</h1>
+
         {% include partials/tableofcontents %}
     </nav>
     <h1 class="booktitle">{{ global.title }}</h1>
