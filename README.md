@@ -8,9 +8,9 @@ Using Liquid for the layout just because the markdown is pre-processed with Liqu
 
 ## todo
 
-Javascript to make menu behave as expected with keyboard controls
-Test accessibility
-Javascript to enable dark mode.
+* Javascript to make menu behave as expected with keyboard controls
+* Test accessibility
+* Javascript to enable dark mode.
 
 ## scripts
 
