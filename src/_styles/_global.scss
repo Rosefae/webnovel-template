@@ -3,6 +3,15 @@ $background: var(--background, #fff);
 $body-font: 'Crimson Text', serif;
 $ui-font: 'Raleway', sans-serif;
 
+.screenreader{
+    position:absolute;
+    display: block;
+    width:1px;
+    height:1px;
+    opacity: 0;
+    overflow: hidden;
+}
+
 html{
     margin:0;
     padding:0;
@@ -39,8 +48,23 @@ a{
     color: $foreground;
     opacity: 0.6;
     transition: opacity 0.2s ease;
+    position:relative;
+    &::after{
+        content:'';
+        position:absolute;
+        height: 2px;
+        top: 100%;
+        left:0;
+        right:0;
+        background: $foreground;
+        transform: scalex(0);
+        transition: transform 0.2s ease;
+    }
     &:hover, &:focus{
         opacity:1;
+        &::after{
+            transform: scalex(1);
+        }
     }
 }
 .darkmode a{
@@ -59,6 +83,10 @@ p{
 
 h1{
     font-weight: normal;
+    a{
+        font-family: $body-font;
+        opacity:1;
+    }
 }
 
 footer{

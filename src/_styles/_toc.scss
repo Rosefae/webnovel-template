@@ -27,6 +27,9 @@
             transition: 0.1s ease-out;
             transition-property: opacity, transform;
         }
+        &::after{
+            display:none;
+        }
     }
 
     a:hover, a:focus{

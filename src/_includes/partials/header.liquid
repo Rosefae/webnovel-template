@@ -1,11 +1,9 @@
 <header>
-    <label class="btn menubtn" for="menubtn-secretcheckbox" role="button" tabindex="0"><i class="fas fa-bars" aria-label="Menu"></i></label>
     <input type="checkbox" id="menubtn-secretcheckbox" hidden>
+    <label class="btn menubtn" for="menubtn-secretcheckbox" role="button" tabindex="0" aria-label="Menu"><div class="menuicon" aria-hidden="true"><div></div><div></div><div></div></div></label>
+    <h1 class="booktitle"><a href="{{collections.index[0].url}}">{{ global.title }}</a></h1>
     <nav aria-label="Table of Contents">
-        <label class="btn closebtn" for="menubtn-secretcheckbox" role="button" tabindex="0"><i class="fas fa-times" aria-label="Close"></i></label>
-        <h1 class="booktitle">{{ global.title }}</h1>
 
         {% include partials/tableofcontents %}
     </nav>
-    <h1 class="booktitle">{{ global.title }}</h1>
 </header>

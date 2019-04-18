@@ -2,6 +2,7 @@
 
 header{
     margin-top:20px;
+    position:relative;
     .btn{
         $size: 44px;
         cursor:pointer;
@@ -44,28 +45,78 @@ header{
             }
         }
     }
-    .menubtn{
-        &+input+nav{
+
+    #menubtn-secretcheckbox{
+        & ~ nav{
             display:none;
         }
-        &+input:checked+nav{
-            display:block;
+        &:checked ~ nav{
+            display: block;
+        }
+        &:checked ~ .menubtn{
+            .menuicon{
+                div{
+                    &:first-child{
+                        transform: rotate(45deg) scalex(1.1);
+                    }
+                    &:last-child{
+                        transform: rotate(-45deg) scalex(1.1);
+                    }
+                    &:nth-child(2){
+                        transform: scaleX(0);
+                        opacity:0;
+                    }
+                }
+            }
+        }
+    }
+    .menubtn{
+        position: relative;
+        display:inline-flex;
+        justify-content: center;
+        align-items: center;
+        &:hover, &:focus{
+            .menuicon div{
+                background: $background;
+            }
+        }
+    }
+    .menuicon{
+        width:1.4rem;
+        height:1rem;
+        position:relative;
+        div{
+            height: 0.2rem;
+            background: $foreground;
+            border-radius: 0.2rem;
+            position: absolute;
+            left:0;
+            right:0;
+            top: calc(50% - 0.1rem);
+            transition: transform 0.2s ease;
+            &:first-child{
+                transform:translateY(-0.5rem);
+            }
+            &:last-child{
+                transform: translateY(0.5rem);
+                
+            }
         }
     }
 
+
     nav{
-        position:fixed;
+        position:absolute;
         left:0;
-        top:0;
-        bottom:0;
+        top:100%;
         box-sizing:content-box;
-        width: 27em;
         max-width:100%;
         z-index: 10;
         background:$background;
         padding-left:inherit;
-        padding-right:10px;
-        padding-top: 20px;
+        padding-right:5rem;
+        padding-top: 0;
+        padding-bottom: 1rem;
         overflow: scroll;
     }
     .booktitle{
