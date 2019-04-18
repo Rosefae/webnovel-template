@@ -1,1 +1,25 @@
-<p>Blargh</p>
+<!doctype html>
+<html>
+    <head>
+        {% include partials/headstuff %}
+        <link rel="stylesheet" type="text/css" href="_styles/index.css">
+        <title>{{global.title}}</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>{{global.title}}</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="read/{{collections.rawChapters[0].data.number}}/">Start from the beginning</a>
+                    </li>
+                    <li>
+                        {% assign latest = collections.rawChapters.length | minus: 1 %}
+                        <a href="read/{{collections.rawChapters[latest].data.number}}/">Latest chapter</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {% include partials/footer %}
+    </body>
+</html>

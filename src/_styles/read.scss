@@ -20,10 +20,6 @@ body{
         background: $background;
         z-index: -1000;
     }
-
-    & > *:last-child{
-        padding-bottom: 50px;
-    }
 }
 
 .prevnext{

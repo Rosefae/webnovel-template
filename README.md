@@ -12,6 +12,8 @@ Using Liquid for the layout just because the markdown is pre-processed with Liqu
 * Test accessibility
 * Javascript to enable dark mode.
 * Tiered table of contents (eg Part 1: Chapter X)
+* Home page (First page, current page)
+* Local json to remember where the reader left off
 
 ## scripts
 

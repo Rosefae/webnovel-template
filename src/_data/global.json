@@ -1,3 +1,5 @@
 {
-    "title":"Book Title"
+    "title":"Book Title",
+    "author":"Author Name",
+    "year":"2019"
 }
