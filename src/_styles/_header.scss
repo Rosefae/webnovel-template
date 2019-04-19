@@ -1,25 +1,31 @@
 @import 'toc';
 
+$btn-size: 44px;
+$btn-margin: 10px;
+
 header{
-    margin-top:20px;
+    margin-top:30px;
+    margin-bottom:40px;
     position:relative;
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
     .btn{
-        $size: 44px;
         cursor:pointer;
         display:inline-block;
-        height: $size;
-        width: $size;
+        height: $btn-size;
+        width: $btn-size;
         outline:none;
         position:relative;
         vertical-align: middle;
         text-align: center;
-        margin-left: calc((#{$size} - 1em)/-2);
-        margin-right: 10px;
+        flex-shrink:0;
 
         transition: color 0.3s ease;
 
         i, i::before{
-            line-height: $size;
+            line-height: $btn-size;
         }
         
         &::before{
@@ -75,6 +81,8 @@ header{
         display:inline-flex;
         justify-content: center;
         align-items: center;
+        margin-left: calc((#{$btn-size} - 1em)/-2);
+        margin-right: $btn-margin;
         &:hover, &:focus{
             .menuicon div{
                 background: $background;
@@ -82,7 +90,7 @@ header{
         }
     }
     .menuicon{
-        width:1.4rem;
+        width:1.3rem;
         height:1rem;
         position:relative;
         div{
@@ -93,7 +101,7 @@ header{
             left:0;
             right:0;
             top: calc(50% - 0.1rem);
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, opacity 0.2s ease;
             &:first-child{
                 transform:translateY(-0.5rem);
             }
@@ -123,8 +131,9 @@ header{
         display:inline-block;
         vertical-align:middle;
         font-size: 2rem;
-        margin-block-start: 0.67em;
-        margin-block-end: 0.67em;
+        margin:0;
         font-weight: 600;
+        min-height: 100%;
+        flex:1;
     }
 }

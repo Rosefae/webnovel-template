@@ -1,10 +1,23 @@
 @import 'global';
+@import 'layout';
+@import 'header';
 
 body{
     width: 100vw;
     height: 100vh;
     display:flex;
     flex-direction: column;
+}
+
+header{
+    position: absolute;
+    z-index: 5;
+    .booktitle{
+        display: none;
+    }
+    #menubtn-secretcheckbox:checked ~ .booktitle{
+        display:block;
+    }
 }
 
 .container{

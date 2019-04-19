@@ -2,8 +2,5 @@
     <input type="checkbox" id="menubtn-secretcheckbox" hidden>
     <label class="btn menubtn" for="menubtn-secretcheckbox" role="button" tabindex="0" aria-label="Menu"><div class="menuicon" aria-hidden="true"><div></div><div></div><div></div></div></label>
     <h1 class="booktitle"><a href="{{collections.index[0].url}}">{{ global.title }}</a></h1>
-    <nav aria-label="Table of Contents">
-
-        {% include partials/tableofcontents %}
-    </nav>
+    {% include partials/tableofcontents %}
 </header>

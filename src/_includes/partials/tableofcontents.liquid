@@ -1,10 +1,12 @@
-<ul class="tableofcontents">
-    {%- for chapter in collections.rawChapters -%}
-        {%- capture chapterUrl -%}
-            /read/{{chapter.data.number}}/
-        {%- endcapture -%}
-        <li {% if page.url == chapterUrl %}class="currentpage"{% endif %}>
-            <a href="{{ chapterUrl }}">{{ chapter.data.number | romanNumeralsAccessible }}: {{ chapter.data.title }}</a>
-        </li>
-    {%- endfor -%}
-</ul>
+<nav aria-label="Table of Contents">
+    <ul class="tableofcontents">
+        {%- for chapter in collections.rawChapters -%}
+            {%- capture chapterUrl -%}
+                /read/{{chapter.data.number}}/
+            {%- endcapture -%}
+            <li {% if page.url == chapterUrl %}class="currentpage"{% endif %}>
+                <a href="{{ chapterUrl }}">{{ chapter.data.number | romanNumeralsAccessible }}: {{ chapter.data.title }}</a>
+            </li>
+        {%- endfor -%}
+    </ul>
+</nav>
