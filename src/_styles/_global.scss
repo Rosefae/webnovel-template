@@ -10,6 +10,8 @@ $ui-font: 'Raleway', sans-serif;
     height:1px;
     opacity: 0;
     overflow: hidden;
+    cursor: default;
+    pointer-events: none;
 }
 
 html{
