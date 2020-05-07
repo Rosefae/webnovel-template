@@ -3,6 +3,8 @@ $background: var(--background, #fff);
 $body-font: 'Crimson Text', serif;
 $ui-font: 'Raleway', sans-serif;
 
+$rem: 17px;
+
 .screenreader{
     position:absolute;
     display: block;
@@ -17,7 +19,7 @@ $ui-font: 'Raleway', sans-serif;
 html{
     margin:0;
     padding:0;
-    font-size: 17px;
+    font-size: $rem;
 }
 
 *{
@@ -43,12 +45,17 @@ body{
     font-family: $body-font;
 }
 
+main{
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+}
+
 a{
     text-decoration: none;
     outline: none;
     font-family: $ui-font;
     color: $foreground;
-    opacity: 0.6;
+    opacity: 0.7;
     transition: opacity 0.2s ease;
     position:relative;
     &::after{
@@ -69,25 +76,19 @@ a{
         }
     }
 }
-.darkmode a{
-    opacity: 0.7;
-    &:hover, &:focus{
-        opacity:1;
-    }
-}
 
 p{
-    line-height:1.5;
+    line-height:1.9;
     text-indent: 2em;
-    margin-block-start: 1.3em;
-    margin-block-end: 1.3em;
+    margin:0;
 }
 
 h1{
     font-weight: normal;
-    a{
-        font-family: $body-font;
-        opacity:1;
+    font-size: 1.8rem;
+
+    @media screen and (min-width: 425px){
+        font-size: 2rem;
     }
 }
 

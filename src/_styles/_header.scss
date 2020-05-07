@@ -4,13 +4,27 @@ $btn-size: 44px;
 $btn-margin: 10px;
 
 header{
-    margin-top:30px;
-    margin-bottom:40px;
+    margin-top: 0.6rem;
+    margin-bottom: 1.4rem;
     position:relative;
     display:flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+
+    @media screen and (min-width: 425px){
+        margin-top:1rem;
+        margin-bottom:2.4rem;
+    }
+
+    @media screen and (min-width: 768px){
+        margin-top:1.75rem;
+    }
+
+    @media screen and (min-width: 1024px){
+        margin-top: 2.5rem;
+    }
+
     .btn{
         cursor:pointer;
         display:inline-block;
@@ -127,6 +141,7 @@ header{
         padding-bottom: 1rem;
         overflow: scroll;
     }
+
     .booktitle{
         display:inline-block;
         vertical-align:middle;
@@ -135,5 +150,10 @@ header{
         font-weight: 600;
         min-height: 100%;
         flex:1;
+
+        a{
+            font-family: $body-font;
+            opacity:1;
+        }
     }
 }

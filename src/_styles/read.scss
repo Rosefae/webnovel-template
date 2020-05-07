@@ -4,7 +4,7 @@
 
 body{
     $progress-bar-width: 2px;
-    background-color: none;
+    background-color: transparent;
     background-image: linear-gradient(to right top, $foreground 50%, $background 50%);
     background-size: 100% calc(100% - 100vh + #{$progress-bar-width});
     background-repeat: no-repeat;
