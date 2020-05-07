@@ -13,10 +13,6 @@ module.exports = function(eleventyConfig){
         let roman = arabicToRoman(n);
         return roman;
     });
-    eleventyConfig.addFilter("romanNumeralsAccessible", function(n){
-        let roman = arabicToRoman(n);
-        return `<span aria-label="${n}" role="text"><span aria-hidden="true">${roman}</span></span>`;
-    });
 
     return {
         dir: {

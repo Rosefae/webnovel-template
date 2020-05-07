@@ -5,7 +5,7 @@
                 /read/{{chapter.data.number}}/
             {%- endcapture -%}
             <li {% if page.url == chapterUrl %}class="currentpage"{% endif %}>
-                <a href="{{ chapterUrl }}">{{ chapter.data.number | romanNumeralsAccessible }}: {{ chapter.data.title }}</a>
+                <a href="{{ chapterUrl }}">{{ chapter.data.number | romanNumerals }}. {{ chapter.data.title }}</a>
             </li>
         {%- endfor -%}
     </ul>

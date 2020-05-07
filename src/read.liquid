@@ -23,7 +23,7 @@ tags: pagedChapters
                 {% include partials/prevnext %}
                 <main>
                     <h1 class="chaptertitle">
-                        Chapter {{ chapter.data.number | romanNumeralsAccessible }} &mdash; {{ chapter.data.title }}
+                        Chapter {{ chapter.data.number | romanNumerals }} &mdash; {{ chapter.data.title }}
                     </h1>
                     {{ chapter.templateContent }}
                 </main>
@@ -31,6 +31,7 @@ tags: pagedChapters
                 {% include partials/footer %}
             </div>
         </div>
+        <script src="../../_scripts/darkmode.js"></script>
     </body>
 {% endfor %}
 </html>
