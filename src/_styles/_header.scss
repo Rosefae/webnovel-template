@@ -4,18 +4,13 @@ $btn-size: 44px;
 $btn-margin: 10px;
 
 header{
-    padding-top: 0.6rem;
-    margin-bottom: 1.4rem;
+    padding-top:1rem;
+    margin-bottom:2.4rem;
     position:relative;
     display:flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-
-    @media screen and (min-width: 425px){
-        padding-top:1rem;
-        margin-bottom:2.4rem;
-    }
 
     @media screen and (min-width: 768px){
         padding-top:1.75rem;
@@ -132,7 +127,7 @@ header{
         overflow: scroll;
     }
 
-    $darkmodebtn-width: 3rem;
+    $darkmodebtn-width: 2.5rem;
 
     .darkmodebtn{
         cursor: pointer;
@@ -144,11 +139,11 @@ header{
         right: 0;
         z-index: 10;
         width: $darkmodebtn-width;
-        height: 6rem;
+        height: 5rem;
         clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
         background-color: $foreground;
         color: $background;
-        transform: translateY(-1rem);
+        transform: translateY(-0.7rem);
         transition: transform 0.3s ease;
     }
 

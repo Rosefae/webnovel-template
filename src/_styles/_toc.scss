@@ -9,7 +9,7 @@
     a{
         position: relative;
         &::before{
-            $arrow-size: 5px;
+            $arrow-size: 0.3em;
             content:'';
             display: block;
             box-sizing:content-box;
@@ -19,11 +19,11 @@
             border-left:$arrow-size $foreground solid;
             border-bottom:$arrow-size transparent solid;
             position: absolute;
-            right:calc(100% + 5px);
+            right:calc(100% + #{$arrow-size});
             top: calc(50% - #{$arrow-size});
 
             opacity: 0;
-            transform: translateX(3px);
+            transform: translateX(50%);
             transition: 0.1s ease-out;
             transition-property: opacity, transform;
         }
