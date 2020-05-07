@@ -61,12 +61,14 @@ a{
         right:0;
         background: $foreground;
         transform: scalex(0);
+        transform-origin: right;
         transition: transform 0.2s ease;
     }
     &:hover, &:focus{
         opacity:1;
         &::after{
             transform: scalex(1);
+            transform-origin: left;
         }
     }
 }
