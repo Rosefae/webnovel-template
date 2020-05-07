@@ -14,6 +14,9 @@ tags: pagedChapters
         {% include partials/headstuff %}
         <link rel="stylesheet" type="text/css" href="../../_styles/read.css">
         <title>{{ chapter.data.title }} | {{ global.title }}</title>
+        <script>
+            localStorage.setItem("currChapter", {{ chapter.data.number }});
+        </script>
     </head>
     <body>
         {% include partials/darkmode %}

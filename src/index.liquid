@@ -18,6 +18,9 @@ tags: index
                     <h1>{{global.title}}</h1>
                     <nav>
                         <ul>
+                            <li id="currChapterLink" hidden>
+                                <a href="#">Continue Reading</a>
+                            </li>
                             <li>
                                 <a href="read/{{collections.rawChapters[0].data.number}}/">Start from the beginning</a>
                             </li>
@@ -32,5 +35,6 @@ tags: index
             </div>
         </div>
         <script src="../../_scripts/darkmode.js"></script>
+        <script src="../../_scripts/getbookmark.js"></script>
     </body>
 </html>

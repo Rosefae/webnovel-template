@@ -10,8 +10,6 @@ Using Liquid for the layout just because the markdown is pre-processed with Liqu
 
 * Test accessibility
 * Tiered table of contents (eg Part 1: Chapter X)
-* Local json to remember where the reader left off + dark mode preferences
-* Getting screenreaders to read roman numerals nicely
 * Add stuff like "Home" and "About" to navigation pane under table of contents
 
 ## scripts
