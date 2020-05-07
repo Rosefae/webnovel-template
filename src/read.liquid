@@ -16,16 +16,21 @@ tags: pagedChapters
         <title>{{ chapter.data.title }} | {{ global.title }}</title>
     </head>
     <body>
-        {% include partials/header %}
-        {% include partials/prevnext %}
-        <main>
-            <h1 class="chaptertitle">
-                Chapter {{ chapter.data.number | romanNumeralsAccessible }} &mdash; {{ chapter.data.title }}
-            </h1>
-            {{ chapter.templateContent }}
-        </main>
-        {% include partials/prevnext %}
-        {% include partials/footer %}
+        {% include partials/darkmode %}
+        <div class="page-wrapper">
+            <div class="content-wrapper">
+                {% include partials/header %}
+                {% include partials/prevnext %}
+                <main>
+                    <h1 class="chaptertitle">
+                        Chapter {{ chapter.data.number | romanNumeralsAccessible }} &mdash; {{ chapter.data.title }}
+                    </h1>
+                    {{ chapter.templateContent }}
+                </main>
+                {% include partials/prevnext %}
+                {% include partials/footer %}
+            </div>
+        </div>
     </body>
 {% endfor %}
 </html>

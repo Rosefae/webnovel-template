@@ -4,7 +4,7 @@ $btn-size: 44px;
 $btn-margin: 10px;
 
 header{
-    margin-top: 0.6rem;
+    padding-top: 0.6rem;
     margin-bottom: 1.4rem;
     position:relative;
     display:flex;
@@ -13,60 +13,21 @@ header{
     justify-content: space-between;
 
     @media screen and (min-width: 425px){
-        margin-top:1rem;
+        padding-top:1rem;
         margin-bottom:2.4rem;
     }
 
     @media screen and (min-width: 768px){
-        margin-top:1.75rem;
+        padding-top:1.75rem;
     }
 
     @media screen and (min-width: 1024px){
-        margin-top: 2.5rem;
-    }
-
-    .btn{
-        cursor:pointer;
-        display:inline-block;
-        height: $btn-size;
-        width: $btn-size;
-        outline:none;
-        position:relative;
-        vertical-align: middle;
-        text-align: center;
-        flex-shrink:0;
-
-        transition: color 0.3s ease;
-
-        i, i::before{
-            line-height: $btn-size;
-        }
-        
-        &::before{
-            content:'';
-            display: block;
-            position: absolute;
-            z-index:-1;
-            top:0;
-            left:0;
-            bottom:0;
-            right:0;
-            background:$foreground;
-            border-radius: 50%;
-            transform: scale(0);
-            opacity: 0;
-            transition: 0.3s ease;
-        }
-        &:hover, &:focus{
-            color:$background;
-            &::before{
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
+        padding-top: 2.5rem;
     }
 
     #menubtn-secretcheckbox{
+        @extend .screenreader;
+
         & ~ nav{
             display:none;
         }
@@ -90,19 +51,48 @@ header{
             }
         }
     }
+
     .menubtn{
-        position: relative;
+        cursor:pointer;
         display:inline-flex;
         justify-content: center;
         align-items: center;
+        height: $btn-size;
+        width: $btn-size;
         margin-left: calc((#{$btn-size} - 1em)/-2);
         margin-right: $btn-margin;
-        &:hover, &:focus{
-            .menuicon div{
-                background: $background;
-            }
+        outline:none;
+        position:relative;
+        flex-shrink:0;
+        
+        &::before{
+            content:'';
+            display: block;
+            position: absolute;
+            z-index:-1;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            background:$foreground;
+            border-radius: 50%;
+            transform: scale(0);
+            opacity: 0;
+            transition: 0.3s ease;
         }
     }
+
+    .menubtn:hover, #menubtn-secretcheckbox:focus ~ .menubtn{
+        &::before{
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .menuicon div{
+            background: $background;
+        }
+    }
+
     .menuicon{
         width:1.3rem;
         height:1rem;
@@ -142,11 +132,32 @@ header{
         overflow: scroll;
     }
 
+    $darkmodebtn-width: 3rem;
+
+    .darkmodebtn{
+        cursor: pointer;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        width: $darkmodebtn-width;
+        height: 6rem;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+        background-color: $foreground;
+        color: $background;
+        transform: translateY(-1rem);
+        transition: transform 0.3s ease;
+    }
+
     .booktitle{
         display:inline-block;
         vertical-align:middle;
         font-size: 2rem;
         margin:0;
+        margin-right: $darkmodebtn-width + 1rem;
         font-weight: 600;
         min-height: 100%;
         flex:1;
@@ -156,4 +167,8 @@ header{
             opacity:1;
         }
     }
+}
+
+.darkmodebtn:hover, #darkmodebtn-secretcheckbox:focus ~ .page-wrapper .darkmodebtn{
+    transform: translateY(0);
 }

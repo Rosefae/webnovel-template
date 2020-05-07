@@ -2,15 +2,15 @@
 @import 'layout';
 @import 'header';
 
-body{
-    width: 100vw;
-    height: 100vh;
+.content-wrapper{
+    min-height: 100vh;
     display:flex;
     flex-direction: column;
 }
 
 header{
     position: absolute;
+    width: 100%;
     z-index: 5;
     .booktitle{
         display: none;
