@@ -1,0 +1,8 @@
+{
+    "layout":"appendix-layout",
+    "permalink":"/{{page.fileSlug}}/",
+    "appendicesOrder":[
+        "about",
+        "appendix"
+    ]
+}

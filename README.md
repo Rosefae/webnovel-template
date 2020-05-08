@@ -10,10 +10,9 @@ Using Liquid for the layout just because the markdown is pre-processed with Liqu
 
 * Test accessibility
 * Tiered table of contents (eg Part 1: Chapter X)
-* Add stuff like "Home" and "About" to navigation pane under table of contents
-* Add ability to link to external mirrors when on a chapter page
 * Add social links to homepage
 * Gulp-ify and add autoprefixer?
+* RSS feed?
 
 ## scripts
 

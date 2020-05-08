@@ -9,6 +9,15 @@ module.exports = function(eleventyConfig){
         });
     });
 
+    eleventyConfig.addCollection("appendices", function(collection){
+        let appendices = collection.getFilteredByGlob("**/appendices/*");
+        let orderKey = appendices[0].data.appendicesOrder;
+
+        let sortedAppendices = explicitlyOrder(appendices, orderKey);
+
+        return sortedAppendices;
+    });
+
     eleventyConfig.addFilter("romanNumerals", function(n){
         let roman = arabicToRoman(n);
         return roman;
@@ -47,7 +56,39 @@ module.exports = function(eleventyConfig){
 //     }
 // }
 
-function arabicToRoman(n){
+
+function explicitlyOrder(arr, orderKey){
+    let orderingDict = {};
+
+    orderKey.forEach((key, index)=>{
+        orderingDict[key] = index;
+    });
+
+    arr.sort(function(a, b){
+        let aIndex = orderingDict[a.fileSlug];
+        let bIndex = orderingDict[b.fileSlug];
+
+        if(typeof aIndex === 'undefined' && typeof bIndex === 'undefined'){
+            return 0;
+        }
+        if (typeof aIndex === 'undefined'){
+            return 1;
+        }
+        if(typeof bIndex === 'undefined'){
+            return -1;
+        }
+
+        return aIndex - bIndex;
+    });
+
+    return arr;
+}
+
+function arabicToRoman(arabic){
+    var n = Number(arabic);
+    if(!Number.isInteger(n)){
+        return n;
+    }
     var numberSymbols = [
         {
             "one" : "I",

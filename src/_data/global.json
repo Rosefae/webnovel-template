@@ -1,5 +1,15 @@
 {
     "title":"Book Title",
     "author":"Author Name",
-    "year":"2019"
+    "year":"2019",
+    "mirrors":[
+        {
+            "name":"Mirror 1",
+            "url":"#"
+        },
+        {
+            "name":"Mirror 2",
+            "url":"#"
+        }
+    ]
 }

@@ -1,12 +1,41 @@
-<nav aria-label="Table of Contents">
-    <ul class="tableofcontents">
-        {%- for chapter in collections.rawChapters -%}
-            {%- capture chapterUrl -%}
-                /read/{{chapter.data.number}}/
-            {%- endcapture -%}
-            <li {% if page.url == chapterUrl %}class="currentpage"{% endif %}>
-                <a href="{{ chapterUrl }}">{{ chapter.data.number | romanNumerals }}. {{ chapter.data.title }}</a>
-            </li>
-        {%- endfor -%}
-    </ul>
+<nav class="tableofcontents" aria-label="Table of Contents">
+    {%- if collections.rawChapters.length > 0 -%}
+        <ul>
+            {%- for chapter in collections.rawChapters -%}
+                {%- capture chapterUrl -%}
+                    /read/{{chapter.data.number}}/
+                {%- endcapture -%}
+                <li {% if page.url == chapterUrl %}class="currentpage"{% endif %}>
+                    <a href="{{ chapterUrl }}">{{ chapter.data.number | romanNumerals }}. {{ chapter.data.title }}</a>
+                </li>
+            {%- endfor -%}
+        </ul>
+    {%- endif -%}
+
+    {%- if collections.appendices.length > 0 -%}
+        <ul>
+            {%- for appendix in collections.appendices -%}
+                <li {% if page.url == appendix.url %}class="currentpage"{% endif %}>
+                    <a href="{{ appendix.url }}">{{ appendix.data.title }}</a>
+                </li>
+            {%- endfor -%}
+        </ul>
+    {%- endif -%}
+
+    {%- if chapter -%}
+        {%- assign mirrors = chapter.data.mirrors -%}
+    {%- else -%}
+        {%- assign mirrors = global.mirrors -%}
+    {%- endif -%}
+
+    {%- if mirrors.length > 0 -%}
+        <ul>
+            {%- for mirror in mirrors -%}
+                <li class="external-link">
+                    <a href="{{mirror.url}}" target="_blank" rel="noopener">{{mirror.name}} <i class="fas fa-external-link-alt"></i></a>
+                </li>
+            {%- endfor -%}
+        </ul>
+    {%- endif -%}
+
 </nav>
