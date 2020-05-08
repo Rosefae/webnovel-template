@@ -1,0 +1,18 @@
+$foreground: var(--foreground, #000);
+$background: var(--background, #fff);
+
+$body-font: 'Crimson Text', serif;
+$ui-font: 'Raleway', sans-serif;
+
+$rem: 17px;
+
+%screenreader{
+    position:absolute;
+    display: block;
+    width:1px;
+    height:1px;
+    opacity: 0;
+    overflow: hidden;
+    cursor: default;
+    pointer-events: none;
+}

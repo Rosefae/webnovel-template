@@ -6,10 +6,9 @@ tags: index
 <html>
     <head>
         {% include partials/headstuff %}
-        <link rel="stylesheet" type="text/css" href="_styles/index.css">
         <title>{{global.title}}</title>
     </head>
-    <body>
+    <body class="page-index">
         {% include partials/darkmode %}
         <div class="page-wrapper">
             <div class="content-wrapper">
@@ -34,7 +33,15 @@ tags: index
                 {% include partials/footer %}
             </div>
         </div>
-        <script src="../../_scripts/darkmode.js"></script>
-        <script src="../../_scripts/getbookmark.js"></script>
+        <script src="/_scripts/darkmode.js"></script>
+        <script>
+            let currChapter = localStorage.getItem("currChapter");
+            let currChapterLink = document.getElementById("currChapterLink");
+
+            if (currChapter){
+                currChapterLink.firstElementChild.setAttribute("href", "read/" + currChapter + "/");
+                currChapterLink.removeAttribute("hidden");
+            }
+        </script>
     </body>
 </html>

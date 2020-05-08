@@ -12,13 +12,12 @@ tags: pagedChapters
 {% for chapter in pagination.items %}
     <head>
         {% include partials/headstuff %}
-        <link rel="stylesheet" type="text/css" href="../../_styles/read.css">
         <title>{{ chapter.data.title }} | {{ global.title }}</title>
         <script>
             localStorage.setItem("currChapter", {{ chapter.data.number }});
         </script>
     </head>
-    <body>
+    <body class="page-read">
         {% include partials/darkmode %}
         <div class="page-wrapper">
             <div class="content-wrapper">
@@ -34,7 +33,7 @@ tags: pagedChapters
                 {% include partials/footer %}
             </div>
         </div>
-        <script src="../../_scripts/darkmode.js"></script>
+        <script src="/_scripts/darkmode.js"></script>
     </body>
 {% endfor %}
 </html>

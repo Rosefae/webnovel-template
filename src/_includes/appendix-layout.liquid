@@ -2,20 +2,22 @@
 <html>
     <head>
         {% include partials/headstuff %}
-        <link rel="stylesheet" type="text/css" href="../../_styles/read.css">
-        <title>{{ data.title }} | {{ global.title }}</title>
+        <title>{{ title }} | {{ global.title }}</title>
     </head>
-    <body>
+    <body class="page-appendix">
         {% include partials/darkmode %}
         <div class="page-wrapper">
             <div class="content-wrapper">
                 {% include partials/header %}
                 <main>
+                    <h1>
+                        {{ title }}
+                    </h1>
                     {{ content }}
                 </main>
                 {% include partials/footer %}
             </div>
         </div>
-        <script src="../../_scripts/darkmode.js"></script>
+        <script src="/_scripts/darkmode.js"></script>
     </body>
 </html>
