@@ -8,7 +8,7 @@ Using Liquid for the layout just because the markdown is pre-processed with Liqu
 
 ## todo
 
-* Test accessibility
+* Fix style issue when menu is longer than page
 * Tiered table of contents (eg Part 1: Chapter X)
 * Add social links to homepage
 * Gulp-ify and add autoprefixer?
