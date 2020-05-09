@@ -14,6 +14,7 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 * Add browsersync and sourcemap to gulpfile
 * RSS feed?
 * Delete rawChapters automatically upon finish building?
+* Update layout so chapter titles are optional
 
 ## Features
 
@@ -25,12 +26,13 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 * Support for extra pages like appendices
 * Comes with clean and simple aesthetics, but you can also bring your own stylesheet
 
-## Future features?
+## Future Features?
 
 * Choose between arabic numerals and roman numerals for your chapter numbers. Fancy!
 * RSS feed
 * Tiered table of contents (e.g. Part 1: Chapter 30)
 * Social links on homepage
+* Allow for chapters that only have numbers and don't have titles
 
 ## NPM Scripts
 
@@ -44,7 +46,7 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 
 `start`: Runs `serve` and `scss` concurrently.
 
-## Adding content
+## Adding Content
 
 This template uses Eleventy to generate the static HTML for the final output. Eleventy handles a wide range of templating languages. This template uses Liquid for the OOTB layout and Markdown for the sample content, but by no means are you limited to using these languages.
 
@@ -65,11 +67,13 @@ Each chapter needs the following data in its frontmatter:
 * Title
 * Number
 
-The reading order of your chapters will be determined by the `Number` values.
+It also optionally takes a mirror array (see below).
+
+The reading order of your chapters will be determined by the `Number` values. i.e. chapter 1 should be given the number "1".
 
 The filename of each chapter can be arbitrary, as they will all output to `read/[number]/`.
 
-Prologues can be placed at the front by giving it a chapter number of 0. Any interlogues/interludes can be ordered correctly by giving its number a decimal value (e.g. 3.5 for an interlude between chapters 3 and 4).
+Prologues can be placed at the front by giving it a chapter number of 0. Any interlogues/interludes can be ordered correctly by giving its number a decimal value (e.g. 3.5 for an interlude between chapters 3 and 4). (Future versions will be adding a flag so you can hide the numbers and it won't look weird).
 
 ### Appendix
 
@@ -81,7 +85,7 @@ Anything that isn't a part of your main story, such as an about page, cast page,
 
 To explicitly define the order in which the appendices appear in the menu, use the `appendicesOrder` array in `appendices/appndices.11tydata.json`, where each string is the exact filename of the appendix without the file extension.
 
-## Adding mirrors
+## Adding Mirrors
 
 There's an array `_data/global/json` for global mirror links.
 
