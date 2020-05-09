@@ -9,14 +9,7 @@
         z-index:0;
 
         &::before{
-            content:"";
-            position: fixed;
-            top:0;
-            left:0;
             bottom:$progress-bar-width;
-            right:0;
-            background: $background;
-            z-index: -1000;
         }
     }
 

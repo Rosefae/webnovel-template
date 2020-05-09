@@ -6,6 +6,11 @@ $ui-font: 'Raleway', sans-serif;
 
 $rem: 17px;
 
+$darkmodebtn-zindex:200;
+$menu-zindex: 100;
+
+$side-gutter: var(--side-gutter, 10vw);
+
 %screenreader{
     position:absolute;
     display: block;

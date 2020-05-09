@@ -2,15 +2,29 @@ $min-width: 360px;
 $max-width: 1000px;
 
 .content-wrapper{
-    margin: 0 10vw;
+    --side-gutter: 10vw;
+    margin: 0 $side-gutter;
 
     @media screen and (max-width: #{$min-width/0.8}){
-        margin: 0 calc((100vw - #{$min-width})/2);
+        --side-gutter: calc((100vw - #{$min-width})/2);
     }
     @media screen and (max-width: #{$min-width + 20px}){
-        margin: 0 15px;
+        --side-gutter: 15px;
     }
     @media screen and (min-width: #{$max-width/0.8}){
-        margin: 0 calc((100vw - #{$max-width})/2);
+        --side-gutter: calc((100vw - #{$max-width})/2);
+    }
+}
+
+.page-wrapper{
+    &::before{
+        content:"";
+        position: fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background: $background;
+        z-index: -1000;
     }
 }

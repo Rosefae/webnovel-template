@@ -1,16 +1,159 @@
 @import 'toc';
 
-$btn-size: 44px;
-$btn-margin: 10px;
+$menu-width: 350px;
+$btn-size: 2.5rem;
+$btn-margin: 0.6rem;
+$menu-icon-size:1.3rem;
+$darkmodebtn-width: 2.5rem;
+
+#menubtn-secretcheckbox{
+    @extend .screenreader;
+
+    &:checked ~ header{
+        position: fixed;
+        padding-left: $side-gutter;
+        padding-right: $side-gutter;
+        background-color: $background;
+        top:0;
+        right:0;
+        left:0;
+        bottom:0;
+        z-index: $menu-zindex - 5;
+        overflow-y: auto;
+        margin-bottom: 0;
+
+        .darkmodebtn{
+            right: $side-gutter;
+        }
+
+        @media screen and (min-width: 768px){
+            position: relative;
+            padding-left:0;
+            padding-right: 0;
+            top: auto;
+            right: auto;
+            left: auto;
+            bottom: auto;
+            background-color: transparent;
+            overflow-y: visible;
+            margin-bottom:2.4rem;
+
+            .darkmodebtn{
+                right:0;
+            }
+
+            .menu-container{
+                position: absolute;
+                top:100%;
+            }
+        }
+    }
+
+    &:checked ~ header > .menubtn{
+        .menuicon{
+            div{
+                &:first-child{
+                    transform: rotate(45deg) scalex(1.1);
+                }
+                &:last-child{
+                    transform: rotate(-45deg) scalex(1.1);
+                }
+                &:nth-child(2){
+                    transform: scaleX(0);
+                    opacity:0;
+                }
+            }
+        }
+    }
+
+    &:checked ~ header > .menu-container{
+        display: block;
+    }
+}
+
+.menubtn{
+    cursor:pointer;
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: $btn-size;
+    width: $btn-size;
+    margin-left: calc((#{$btn-size} - #{$menu-icon-size})/-2);
+    margin-right: $btn-margin;
+    outline:none;
+    position:relative;
+    flex-shrink:0;
+    z-index: $menu-zindex + 1;
+    
+    &::before{
+        content:'';
+        display: block;
+        position: absolute;
+        z-index:-1;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background:$foreground;
+        border-radius: 50%;
+        transform: scale(0);
+        opacity: 0;
+        transition: 0.3s ease;
+    }
+}
+
+.menubtn:hover, #menubtn-secretcheckbox:focus ~ * > .menubtn{
+    &::before{
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .menuicon div{
+        background: $background;
+    }
+}
+
+.menuicon{
+    width:$menu-icon-size;
+    height:1rem;
+    position:relative;
+    div{
+        height: 0.2rem;
+        background: $foreground;
+        border-radius: 0.2rem;
+        position: absolute;
+        left:0;
+        right:0;
+        top: calc(50% - 0.1rem);
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        &:first-child{
+            transform:translateY(-0.5rem);
+        }
+        &:last-child{
+            transform: translateY(0.5rem);
+            
+        }
+    }
+}
+
+.menu-container{
+    max-width: 100%;
+    min-height: 100%;
+    width: 350px;
+    padding: 0 $btn-size + 0.5rem;
+    z-index: $menu-zindex - 1;
+    background-color: $background;
+    display: none;
+}
 
 header{
     padding-top:1rem;
     margin-bottom:2.4rem;
     position:relative;
-    display:flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+
+    & > * {
+        vertical-align: middle;
+    }
 
     @media screen and (min-width: 768px){
         padding-top:1.75rem;
@@ -20,147 +163,35 @@ header{
         padding-top: 2.5rem;
     }
 
-    #menubtn-secretcheckbox{
-        @extend .screenreader;
-
-        & ~ nav{
-            display:none;
-        }
-        &:checked ~ nav{
-            display: block;
-        }
-        &:checked ~ .menubtn{
-            .menuicon{
-                div{
-                    &:first-child{
-                        transform: rotate(45deg) scalex(1.1);
-                    }
-                    &:last-child{
-                        transform: rotate(-45deg) scalex(1.1);
-                    }
-                    &:nth-child(2){
-                        transform: scaleX(0);
-                        opacity:0;
-                    }
-                }
-            }
-        }
-    }
-
-    .menubtn{
-        cursor:pointer;
-        display:inline-flex;
-        justify-content: center;
-        align-items: center;
-        height: $btn-size;
-        width: $btn-size;
-        margin-left: calc((#{$btn-size} - 1em)/-2);
-        margin-right: $btn-margin;
-        outline:none;
-        position:relative;
-        flex-shrink:0;
-        
-        &::before{
-            content:'';
-            display: block;
-            position: absolute;
-            z-index:-1;
-            top:0;
-            left:0;
-            bottom:0;
-            right:0;
-            background:$foreground;
-            border-radius: 50%;
-            transform: scale(0);
-            opacity: 0;
-            transition: 0.3s ease;
-        }
-    }
-
-    .menubtn:hover, #menubtn-secretcheckbox:focus ~ .menubtn{
-        &::before{
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .menuicon div{
-            background: $background;
-        }
-    }
-
-    .menuicon{
-        width:1.3rem;
-        height:1rem;
-        position:relative;
-        div{
-            height: 0.2rem;
-            background: $foreground;
-            border-radius: 0.2rem;
-            position: absolute;
-            left:0;
-            right:0;
-            top: calc(50% - 0.1rem);
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            &:first-child{
-                transform:translateY(-0.5rem);
-            }
-            &:last-child{
-                transform: translateY(0.5rem);
-                
-            }
-        }
-    }
-
-
-    nav{
-        position:absolute;
-        left:0;
-        top:100%;
-        box-sizing:content-box;
-        max-width:100%;
-        z-index: 10;
-        background:$background;
-        padding-left:inherit;
-        padding-right:5rem;
-        padding-top: 0;
-        padding-bottom: 1rem;
-        overflow: scroll;
-    }
-
-    $darkmodebtn-width: 2.5rem;
-
-    .darkmodebtn{
-        cursor: pointer;
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        top: 0;
-        right: 0;
-        z-index: 10;
-        width: $darkmodebtn-width;
-        height: 5rem;
-        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
-        background-color: $foreground;
-        color: $background;
-        transform: translateY(-0.7rem);
-        transition: transform 0.3s ease;
-    }
-
     .booktitle{
         display:inline-block;
-        vertical-align:middle;
         font-size: 2rem;
         margin:0;
         margin-right: $darkmodebtn-width + 1rem;
-        min-height: 100%;
-        flex:1;
 
         a{
             font-family: $body-font;
             opacity:1;
         }
     }
+}
+
+.darkmodebtn{
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    z-index: $darkmodebtn-zindex;
+    width: $darkmodebtn-width;
+    height: 5rem;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+    background-color: $foreground;
+    color: $background;
+    transform: translateY(-0.7rem);
+    transition: transform 0.3s ease;
 }
 
 .darkmodebtn:hover, #darkmodebtn-secretcheckbox:focus ~ .page-wrapper .darkmodebtn{

@@ -7,17 +7,13 @@
     }
 
     header{
-        position: absolute;
-        left:0;
-        top:0;
-        right:0;
-        z-index: 5;
         .booktitle{
             display: none;
         }
-        #menubtn-secretcheckbox:checked ~ .booktitle{
-            display:block;
-        }
+    }
+
+    #menubtn-secretcheckbox:checked ~ * > .booktitle{
+        display:inline-block;
     }
 
     .container{
