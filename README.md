@@ -24,13 +24,12 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 * Remembers where users left off and adds a friendly "Continue Reading" button to the homepage
 * Easily add links to mirrors -- both for individual chapters and for your webnovel as a whole
 * Support for extra pages like appendices
-* Comes with clean and simple aesthetics, but you can also bring your own stylesheet
+* Choose between arabic numerals and roman numerals for your chapter numbers. Fancy!
+* Autoprefixer enabled for when you bring your own stylesheet
 
 ## Future Features?
 
-* Choose between arabic numerals and roman numerals for your chapter numbers. Fancy!
 * RSS feed
-* Tiered table of contents (e.g. Part 1: Chapter 30)
 * Social links on homepage
 * Allow for chapters that only have numbers and don't have titles
 
@@ -46,11 +45,20 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 
 `start`: Runs `serve` and `scss` concurrently.
 
+## Global Data
+
+* `title`: Title of book (string)
+* `author`: Name of author (string)
+* `year`: Year or year range of publication used in the copyright in the footer (string)
+* `mirrors`: an array of mirror objects. See "Adding Mirrors" section
+* `numberStyle`: The style you would like to use for chapter numbers (string). Supported values: `arabic`, `roman`, and `none`. Can be overriden for individual chapters by placing a `numberStyle` attribute in the chapter's frontmatter data.
+
+
 ## Adding Content
 
-This template uses Eleventy to generate the static HTML for the final output. Eleventy handles a wide range of templating languages. This template uses Liquid for the OOTB layout and Markdown for the sample content, but by no means are you limited to using these languages.
+This template uses Eleventy to generate the static HTML for the final output. Eleventy handles a wide range of templating languages. This template uses Liquid for the layout and Markdown (with Liquid preprocessing) for the content.
 
-If you do use Markdown, however, this template includes the `markdown-it-attr` plugin, which allows you to add custome classes and attribtues to the generated HTML elements. However, the delimiters have been set to `[-` and `-]` to set it apart from the Liquid Handlebar syntax.
+This template includes the `markdown-it-attr` plugin, which allows you to add custom classes and attribtues to the generated HTML elements. The delimiters have been set to `[-` and `-]` to set it apart from Liquid's curly braces.
 
 This template supports two types of pages: chapters and appendices.
 
@@ -62,18 +70,16 @@ Content file(s): `chapters/*`
 
 The main pages of your story.
 
-Each chapter needs the following data in its frontmatter:
-
-* Title
-* Number
-
-It also optionally takes a mirror array (see below).
+A chapter takes the following data in its frontmatter:
+* Number (required)
+* Title (optional)
+* Mirrors (optional)
 
 The reading order of your chapters will be determined by the `Number` values. i.e. chapter 1 should be given the number "1".
 
 The filename of each chapter can be arbitrary, as they will all output to `read/[number]/`.
 
-Prologues can be placed at the front by giving it a chapter number of 0. Any interlogues/interludes can be ordered correctly by giving its number a decimal value (e.g. 3.5 for an interlude between chapters 3 and 4). (Future versions will be adding a flag so you can hide the numbers and it won't look weird).
+Prologues can be placed at the front by giving it a chapter number of 0. Any interlogues/interludes can be ordered correctly by giving its number a decimal value (e.g. 3.5 for an interlude between chapters 3 and 4). You can then set the `numberStyle` attribute to `none` for that chapter to hide the number.
 
 ### Appendix
 
@@ -87,9 +93,9 @@ To explicitly define the order in which the appendices appear in the menu, use t
 
 ## Adding Mirrors
 
-There's an array `_data/global/json` for global mirror links.
+There's an array `_data/global/json` for global mirror links. Each object within the array has a name attribute and a url attribute. The menu uses this array to generate a list of mirror links.
 
-For specific chapters, the menu will instead use the mirror array in the chapter's frontmatter to generate the links.
+For chapters, the menu will instead use the mirror array in the chapter's frontmatter. Not all global mirrors need to be present in a chapter's mirror array, but for best practice it's best to ensure that the mirrors which *are* present are in the same order as the global array.
 
 ## Adding CSS
 

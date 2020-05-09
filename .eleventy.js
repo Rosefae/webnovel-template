@@ -44,11 +44,26 @@ module.exports = function(eleventyConfig){
         return sortedAppendices;
     });
 
-    // Custome filters
+    // Custom filters
 
     eleventyConfig.addFilter("romanNumerals", function(n){
         let roman = arabicToRoman(n);
         return roman;
+    });
+
+    // Custom shortcodes
+
+    eleventyConfig.addShortcode("chapterNumber", function(number, style, prepend, append){
+        if (style == "none"){
+            return "";
+        }
+        if (style == "arabic"){
+            return prepend + number.toString() + append;
+        }
+        if (style == "roman"){
+            return prepend + arabicToRoman(number) + append;
+        }
+        return "";
     });
 
     // Eleventy settings

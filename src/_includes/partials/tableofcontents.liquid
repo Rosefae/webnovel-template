@@ -1,12 +1,20 @@
 <nav class="tableofcontents" aria-label="Table of Contents">
     {%- if collections.rawChapters.length > 0 -%}
         <ul>
-            {%- for chapter in collections.rawChapters -%}
+            {%- for chapterLink in collections.rawChapters -%}
                 {%- capture chapterUrl -%}
-                    /read/{{chapter.data.number}}/
+                    /read/{{chapterLink.data.number}}/
                 {%- endcapture -%}
+
+                {%- assign chapterLinkNumberStyle = global.numberStyle -%}
+                {%- if chapterLink.data.numberStyle -%}
+                    {%- assign chapterLinkNumberStyle = chapterLink.data.numberStyle -%}
+                {%- endif -%}
+
                 <li {% if page.url == chapterUrl %}class="currentpage"{% endif %}>
-                    <a href="{{ chapterUrl }}">{{ chapter.data.number | romanNumerals }}. {{ chapter.data.title }}</a>
+                    <a href="{{ chapterUrl }}">
+                        {% chapterNumber chapterLink.data.number, chapterLinkNumberStyle, "", ". " %}{{ chapterLink.data.title }}
+                    </a>
                 </li>
             {%- endfor -%}
         </ul>

@@ -10,9 +10,15 @@ tags: pagedChapters
 <!doctype html>
 <html>
 {% for chapter in pagination.items %}
+    
+    {%- assign chapterNumberStyle = global.numberStyle -%}
+    {%- if chapter.data.numberStyle -%}
+        {%- assign chapterNumberStyle = chapter.data.numberStyle -%}
+    {%- endif -%}
+
     <head>
         {% include partials/headstuff %}
-        <title>{{ chapter.data.title }} | {{ global.title }}</title>
+        <title>{% chapterNumber chapter.data.number, chapterNumberStyle, "", ". " %}{{ chapter.data.title }} | {{ global.title }}</title>
         <script>
             localStorage.setItem("currChapter", {{ chapter.data.number }});
         </script>
@@ -25,7 +31,7 @@ tags: pagedChapters
                 {% include partials/prevnext %}
                 <main>
                     <h1 class="chaptertitle">
-                        Chapter {{ chapter.data.number | romanNumerals }} &mdash; {{ chapter.data.title }}
+                        {% chapterNumber chapter.data.number, chapterNumberStyle, "Chapter ", " &mdash; " %}{{ chapter.data.title }}
                     </h1>
                     {{ chapter.templateContent }}
                 </main>

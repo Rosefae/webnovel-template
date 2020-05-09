@@ -11,5 +11,6 @@
             "name":"Mirror 2",
             "url":"#"
         }
-    ]
+    ],
+    "numberStyle":"roman"
 }
