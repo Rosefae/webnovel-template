@@ -3,14 +3,37 @@
 
 module.exports = function(eleventyConfig){
 
+    // Markdown options
+
+    const markdownIt = require("markdown-it");
+    const markdownItAttrs = require ("markdown-it-attrs");
+
+    let mdOptions = {
+        html: true,
+        typographer: true
+    }
+
+    let mdAttrsOptions = {
+        leftDelimiter: '[-',
+        rightDelimiter: '-]'
+    }
+
+    eleventyConfig.setLibrary("md", markdownIt(mdOptions).use(markdownItAttrs, mdAttrsOptions));
+
+    // Copy assets and scripts
+
     eleventyConfig.addPassthroughCopy("src/_scripts");
     eleventyConfig.addPassthroughCopy("src/_assets");
+
+    // Handle chapters
 
     eleventyConfig.addCollection("rawChapters", function(collection){
         return collection.getFilteredByGlob("**/chapters/*").sort(function(a,b){
             return a.data.number - b.data.number;
         });
     });
+
+    // Handle appendices
 
     eleventyConfig.addCollection("appendices", function(collection){
         let appendices = collection.getFilteredByGlob("**/appendices/*");
@@ -21,10 +44,14 @@ module.exports = function(eleventyConfig){
         return sortedAppendices;
     });
 
+    // Custome filters
+
     eleventyConfig.addFilter("romanNumerals", function(n){
         let roman = arabicToRoman(n);
         return roman;
     });
+
+    // Eleventy settings
 
     return {
         dir: {
