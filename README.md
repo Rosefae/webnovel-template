@@ -10,8 +10,6 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 
 * Fix style issue when menu is longer than page
 * RSS feed?
-* Delete rawChapters automatically upon finish building?
-* Update layout so chapter titles are optional
 * CLI command for publishing? (Delete `style.css.map` and `chapters` from dist, then copy to another directory?)
 
 ## Features
@@ -23,12 +21,8 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 * Easily add links to mirrors -- both for individual chapters and for your webnovel as a whole
 * Support for extra pages like appendices
 * Choose between arabic numerals and roman numerals for your chapter numbers. Fancy!
-* Autoprefixer enabled for when you bring your own stylesheet
-
-## Future Features?
-
-* RSS feed
-* Allow for chapters that only have numbers and don't have titles
+* Autoprefixer and minimizer for SCSS stylesheets
+* A 404 page. Just make sure your host directs 404 errors to `404.html`.
 
 ## NPM Scripts
 
@@ -53,7 +47,6 @@ All values are required unless otherwise specified.
 * `numberStyle`: The style you would like to use for chapter numbers. Supported values: `arabic`, `roman`, and `none`. Can be overriden for individual chapters by placing a `numberStyle` attribute in the chapter's frontmatter data.
 * `mirrors` (optional): An array of mirror objects. See "Adding Mirrors" section.
 * `isComplete` (optional): Removes the "Latest chapter" link from the homepage when set to anything other than `false`.
-
 
 ## Adding Content
 

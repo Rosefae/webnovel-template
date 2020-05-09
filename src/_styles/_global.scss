@@ -60,10 +60,18 @@ a{
     }
 }
 
+p a{
+    font-family: $body-font;
+}
+
 p{
     line-height:1.9;
     text-indent: 2em;
     margin:0;
+}
+
+.no-indent{
+    @extend %no-indent;
 }
 
 h1{

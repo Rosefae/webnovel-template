@@ -44,3 +44,7 @@
         }
     }
 }
+
+.page-404{
+    @extend .page-index;
+}
