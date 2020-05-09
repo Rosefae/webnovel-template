@@ -44,6 +44,8 @@ All values are required unless otherwise specified.
 * `author`: Name of author.
 * `year`: Year or year range of publication as a string. Used in the copyright in the footer.
 * `language`: The 2-3 character language tag for the language of your novel. Used to set the HTML `lang` attribute.
+* `description`: A short blurb about your novel. Used by search engines and RSS feeds.
+* `keywords`: A comma-separated list of keywords for SEO purposes.
 * `numberStyle`: The style you would like to use for chapter numbers. Supported values: `arabic`, `roman`, and `none`. Can be overriden for individual chapters by placing a `numberStyle` attribute in the chapter's frontmatter data.
 * `mirrors` (optional): An array of mirror objects. See "Adding Mirrors" section.
 * `isComplete` (optional): Removes the "Latest chapter" link from the homepage when set to anything other than `false`.
