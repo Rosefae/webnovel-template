@@ -15,8 +15,8 @@
     "type": "git",
     "url": "git+https://github.com/Rosefae/webnovel-template.git"
   },
-  "author": "Rose Liu",
-  "license": "UNLICENSED",
+  "author": "Rose Liu <rose@byanyothername.me> (http://byanyothername.me/)",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Rosefae/webnovel-template/issues"
   },

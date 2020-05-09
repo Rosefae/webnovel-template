@@ -9,8 +9,6 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 ## todo
 
 * Fix style issue when menu is longer than page
-* Tiered table of contents (eg Part 1: Chapter X)
-* Add social links to homepage
 * Add browsersync and sourcemap to gulpfile
 * RSS feed?
 * Delete rawChapters automatically upon finish building?
@@ -30,7 +28,6 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 ## Future Features?
 
 * RSS feed
-* Social links on homepage
 * Allow for chapters that only have numbers and don't have titles
 
 ## NPM Scripts
@@ -49,7 +46,7 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 
 All values are required unless otherwise specified.
 
-* `title`: Title of book.
+* `title`: Title of novel.
 * `author`: Name of author.
 * `year`: Year or year range of publication as a string. Used in the copyright in the footer.
 * `language`: The 2-3 character language tag for the language of your novel. Used to set the HTML `lang` attribute.
