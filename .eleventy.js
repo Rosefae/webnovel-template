@@ -1,3 +1,6 @@
+// 11ty handles everything except the CSS stuff.
+// For CSS stuff, please see the gulpfile.
+
 module.exports = function(eleventyConfig){
 
     eleventyConfig.addPassthroughCopy("src/_scripts");

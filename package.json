@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "once": "npx eleventy",
     "serve": "npx eleventy --serve",
-    "oncescss": "sass src/_styles:dist/_styles",
-    "scss": "sass --watch src/_styles:dist/_styles",
+    "oncescss": "gulp scss",
+    "scss": "gulp",
     "start": "concurrently -k -c green.dim,cyan.dim \"npm:serve\" \"npm:scss\""
   },
   "repository": {
@@ -22,7 +22,12 @@
   },
   "homepage": "https://github.com/Rosefae/webnovel-template#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.7.1"
+    "@11ty/eleventy": "^0.10.0",
+    "autoprefixer": "^9.7.6",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^4.14.1"
   },
   "dependencies": {
     "concurrently": "^4.1.0"
