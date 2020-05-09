@@ -9,7 +9,6 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 ## todo
 
 * Fix style issue when menu is longer than page
-* Add browsersync and sourcemap to gulpfile
 * RSS feed?
 * Delete rawChapters automatically upon finish building?
 * Update layout so chapter titles are optional
@@ -101,7 +100,7 @@ For chapters, the menu will instead use the mirror array in the chapter's frontm
 
 ## Adding CSS
 
-CSS processing is handled by a gulpfile, which compiles `_styles/style.scss` and passes it through Autoprefixer.
+CSS processing is handled by a gulpfile, which compiles `_styles/style.scss` and passes it through an autoprefixer and a minifier.
 
 When changing the font, be sure to change the lines in `_includes/partials/headstuff.liquid` where the fonts are imported. Then change the value of the font variables in `_styles/_variables.scss`.
 
