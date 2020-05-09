@@ -23,10 +23,12 @@ tags: index
                             <li>
                                 <a href="read/{{collections.rawChapters[0].data.number}}/">Start from the beginning</a>
                             </li>
+                            {%- unless global.isComplete -%}
                             <li>
                                 {% assign latest = collections.rawChapters.length | minus: 1 %}
                                 <a href="read/{{collections.rawChapters[latest].data.number}}/">Latest chapter</a>
                             </li>
+                            {%- endunless -%}
                         </ul>
                     </nav>
                 </div>

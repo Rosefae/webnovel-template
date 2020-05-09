@@ -13,5 +13,6 @@
             "name":"Mirror 2",
             "url":"#"
         }
-    ]
+    ],
+    "isComplete":false
 }

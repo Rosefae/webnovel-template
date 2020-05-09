@@ -55,6 +55,7 @@ All values are required unless otherwise specified.
 * `language`: The 2-3 character language tag for the language of your novel. Used to set the HTML `lang` attribute.
 * `numberStyle`: The style you would like to use for chapter numbers. Supported values: `arabic`, `roman`, and `none`. Can be overriden for individual chapters by placing a `numberStyle` attribute in the chapter's frontmatter data.
 * `mirrors` (optional): An array of mirror objects. See "Adding Mirrors" section.
+* `isComplete` (optional): Removes the "Latest chapter" link from the homepage when set to anything other than `false`.
 
 
 ## Adding Content
