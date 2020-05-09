@@ -47,11 +47,14 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 
 ## Global Data
 
-* `title`: Title of book (string)
-* `author`: Name of author (string)
-* `year`: Year or year range of publication used in the copyright in the footer (string)
-* `mirrors`: an array of mirror objects. See "Adding Mirrors" section
-* `numberStyle`: The style you would like to use for chapter numbers (string). Supported values: `arabic`, `roman`, and `none`. Can be overriden for individual chapters by placing a `numberStyle` attribute in the chapter's frontmatter data.
+All values are required unless otherwise specified.
+
+* `title`: Title of book.
+* `author`: Name of author.
+* `year`: Year or year range of publication as a string. Used in the copyright in the footer.
+* `language`: The 2-3 character language tag for the language of your novel. Used to set the HTML `lang` attribute.
+* `numberStyle`: The style you would like to use for chapter numbers. Supported values: `arabic`, `roman`, and `none`. Can be overriden for individual chapters by placing a `numberStyle` attribute in the chapter's frontmatter data.
+* `mirrors` (optional): An array of mirror objects. See "Adding Mirrors" section.
 
 
 ## Adding Content
@@ -71,11 +74,12 @@ Content file(s): `chapters/*`
 The main pages of your story.
 
 A chapter takes the following data in its frontmatter:
-* Number (required)
-* Title (optional)
-* Mirrors (optional)
+* `number` (required)
+* `title` (optional)
+* `numberStyle` (optional)
+* `mirrors` (optional)
 
-The reading order of your chapters will be determined by the `Number` values. i.e. chapter 1 should be given the number "1".
+The reading order of your chapters will be determined by the `number` values. i.e. chapter 1 should be given the number "1".
 
 The filename of each chapter can be arbitrary, as they will all output to `read/[number]/`.
 
