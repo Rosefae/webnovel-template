@@ -12,6 +12,7 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 * RSS feed?
 * Delete rawChapters automatically upon finish building?
 * Update layout so chapter titles are optional
+* CLI command for publishing? (Delete `style.css.map` and `chapters` from dist, then copy to another directory?)
 
 ## Features
 
@@ -72,7 +73,7 @@ The main pages of your story.
 
 A chapter takes the following data in its frontmatter:
 * `number` (required)
-* `title` (optional)
+* `title` (optional, unless numberStyle is set to `none`)
 * `numberStyle` (optional)
 * `mirrors` (optional)
 

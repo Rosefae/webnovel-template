@@ -18,7 +18,14 @@ tags: pagedChapters
 
     <head>
         {% include partials/headstuff %}
-        <title>{% chapterNumber chapter.data.number, chapterNumberStyle, "", ". " %}{{ chapter.data.title }} | {{ global.title }}</title>
+        <title>
+            {%- if chapter.data.title -%}
+                {% chapterNumber chapter.data.number, chapterNumberStyle, "", ". " %}{{ chapter.data.title }}
+            {%- else -%}
+                {% chapterNumber chapter.data.number, chapterNumberStyle, "Chapter ", "" %}
+            {%- endif -%}
+            &#32;| {{ global.title }}
+        </title>
         <script>
             localStorage.setItem("currChapter", {{ chapter.data.number }});
         </script>
@@ -31,7 +38,12 @@ tags: pagedChapters
                 {% include partials/prevnext %}
                 <main>
                     <h1 class="chaptertitle">
-                        {% chapterNumber chapter.data.number, chapterNumberStyle, "Chapter ", " &mdash; " %}{{ chapter.data.title }}
+                        {%- if chapter.data.title -%}
+                            {% chapterNumber chapter.data.number, chapterNumberStyle, "Chapter ", " &mdash; " %}
+                        {%- else -%}
+                            {% chapterNumber chapter.data.number, chapterNumberStyle, "Chapter ", "" %}
+                        {%- endif -%}
+                        {{ chapter.data.title }}
                     </h1>
                     {{ chapter.templateContent }}
                 </main>

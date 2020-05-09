@@ -13,7 +13,11 @@
 
                 <li {% if page.url == chapterUrl %}class="currentpage"{% endif %}>
                     <a href="{{ chapterUrl }}">
-                        {% chapterNumber chapterLink.data.number, chapterLinkNumberStyle, "", ". " %}{{ chapterLink.data.title }}
+                        {%- if chapterLink.data.title -%}
+                            {% chapterNumber chapterLink.data.number, chapterLinkNumberStyle, "", ". " %}{{ chapterLink.data.title }}
+                        {%- else -%}
+                            {% chapterNumber chapterLink.data.number, chapterLinkNumberStyle, "Chapter ", "" %}
+                        {%- endif -%}
                     </a>
                 </li>
             {%- endfor -%}
