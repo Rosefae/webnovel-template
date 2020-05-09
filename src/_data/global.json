@@ -5,6 +5,7 @@
     "language":"en",
     "description":"A very compelling story about some well-rounded characters.",
     "keywords":"novel, story, webnovel, webserial",
+    "url":"http://example.com/",
     "numberStyle":"roman",
     "mirrors":[
         {
@@ -16,5 +17,17 @@
             "url":"#"
         }
     ],
+    "showRss":true,
+    "socialLinks":[
+        {
+            "platform":"twitter",
+            "url":"https://twitter.com/ByAnyOtherName_"
+        },
+        {
+            "platform":"patreon",
+            "url":"#"
+        }
+    ],
+    "email":"rose@byanyothername.me",
     "isComplete":false
 }

@@ -9,7 +9,6 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 ## todo
 
 * Fix style issue when menu is longer than page
-* RSS feed?
 * CLI command for publishing? (Delete `style.css.map` and `chapters` from dist, then copy to another directory?)
 
 ## Features
@@ -23,6 +22,7 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 * Choose between arabic numerals and roman numerals for your chapter numbers. Fancy!
 * Autoprefixer and minimizer for SCSS stylesheets
 * A 404 page. Just make sure your host directs 404 errors to `404.html`.
+* An RSS feed to keep your readers up to date.
 
 ## NPM Scripts
 
@@ -42,12 +42,16 @@ All values are required unless otherwise specified.
 
 * `title`: Title of novel.
 * `author`: Name of author.
-* `year`: Year or year range of publication as a string. Used in the copyright in the footer.
-* `language`: The 2-3 character language tag for the language of your novel. Used to set the HTML `lang` attribute.
+* `year`: Year or year range of publication as a string. Used in copyright messages.
+* `language`: The 2-3 character language tag for the language of your novel. Used to set the HTML `lang` attribute and RSS `language` tag.
 * `description`: A short blurb about your novel. Used by search engines and RSS feeds.
 * `keywords`: A comma-separated list of keywords for SEO purposes.
+* `url` (required for RSS feed; otherwise optional): The base URL of where you will be hosting your webnovel. Be sure to include the trailing slash.
 * `numberStyle`: The style you would like to use for chapter numbers. Supported values: `arabic`, `roman`, and `none`. Can be overriden for individual chapters by placing a `numberStyle` attribute in the chapter's frontmatter data.
 * `mirrors` (optional): An array of mirror objects. See "Adding Mirrors" section.
+* `showRss` (optional): Whether to display the link to the RSS feed.
+* `socialLinks` (optional): An array of social media links. The `platform` attribute determines which Font Awesome icon to use.
+* `email` (optional): An email address to be included with the social media links.
 * `isComplete` (optional): Removes the "Latest chapter" link from the homepage when set to anything other than `false`.
 
 ## Adding Content
@@ -72,7 +76,7 @@ A chapter takes the following data in its frontmatter:
 * `numberStyle` (optional)
 * `mirrors` (optional)
 
-The reading order of your chapters will be determined by the `number` values. i.e. chapter 1 should be given the number "1".
+The `number` attribute is the chapter number, i.e. chapter 1 should be given the number "1". This number must be unique. The reading order of your chapters will be determined by the `number` values.
 
 The filename of each chapter can be arbitrary, as they will all output to `read/[number]/`.
 

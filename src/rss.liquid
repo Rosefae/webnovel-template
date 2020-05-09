@@ -1,0 +1,45 @@
+---
+permalink: rss.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+    <title>{{global.title}}</title>
+    <link>{{global.url}}</link>
+    <atom:link href="{{global.url}}rss.xml" rel="self" type="application/rss+xml" />
+    <description>{{global.description}}</description>
+    <language>{{global.language}}</language>
+    <copyright>{{global.year}} {{global.author}}</copyright>
+
+    {%- for chapter in collections.rawChapters reversed -%}
+
+    {%- assign chapterNumberStyle = global.numberStyle -%}
+    {%- if chapter.data.numberStyle -%}
+        {%- assign chapterNumberStyle = chapter.data.numberStyle -%}
+    {%- endif -%}
+
+        <item>
+            <title>
+                {%- if chapter.data.title -%}
+                    {% chapterNumber chapter.data.number, chapterNumberStyle, "", ". " %}{{ chapter.data.title }}
+                {%- else -%}
+                    {% chapterNumber chapter.data.number, chapterNumberStyle, "Chapter ", "" %}
+                {%- endif -%}
+            </title>
+            <link>
+                {{global.url}}read/{{chapter.data.number}}/
+            </link>
+            <guid isPermaLink="true">
+                {{global.url}}read/{{chapter.data.number}}/
+            </guid>
+            <description>
+                New chapter for {{global.title}}.
+            </description>
+        </item>
+    {%- endfor -%}
+
+</channel>
+
+</rss>

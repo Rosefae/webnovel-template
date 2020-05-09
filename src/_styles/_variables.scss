@@ -20,3 +20,36 @@ $rem: 17px;
 %no-indent{
     text-indent: 0;
 }
+
+%link-with-arrow{
+    position: relative;
+    &::before{
+        $arrow-size: 0.3em;
+        content:'';
+        display: block;
+        box-sizing:content-box;
+        height:0;
+        width:0;
+        border-top:$arrow-size transparent solid;
+        border-left:$arrow-size $foreground solid;
+        border-bottom:$arrow-size transparent solid;
+        position: absolute;
+        right:calc(100% + #{$arrow-size});
+        top: calc(50% - #{$arrow-size});
+
+        opacity: 0;
+        transform: translateX(50%);
+        transition: 0.1s ease-out;
+        transition-property: opacity, transform;
+    }
+    &::after{
+        display:none;
+    }
+
+    &:hover, &:focus{
+        &::before{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}

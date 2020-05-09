@@ -30,8 +30,13 @@
         font-family: $body-font;
     }
 
+    h1{
+        margin:0;
+    }
+
     .front-page-nav{
         text-align: center;
+        margin: 2em 0 2.5em;
 
         ul{
             list-style: none;
@@ -41,6 +46,22 @@
 
         li:not(:last-child){
             margin-bottom: 1em;
+        }
+
+        a{
+            @extend %link-with-arrow;
+        }
+    }
+
+    .social-links{
+        list-style: none;
+        padding:0;
+        margin: 0;
+        display: flex;
+        font-size: 1.5rem;
+
+        li{
+            margin: 0 0.5em;
         }
     }
 }

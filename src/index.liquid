@@ -31,6 +31,29 @@ tags: index
                             {%- endunless -%}
                         </ul>
                     </nav>
+                    <ul class="social-links">
+                        {%- if global.showRss -%}
+                            <li>
+                                <a href="rss.xml">
+                                    <i class="fas fa-rss"></i>
+                                </a>
+                            </li>
+                        {%- endif -%}
+                        {%- for social in global.socialLinks -%}
+                            <li>
+                                <a href="{{social.url}}">
+                                    <i class="fab fa-{{social.platform}}"></i>
+                                </a>
+                            </li>
+                        {%- endfor -%}
+                        {%- if global.email -%}
+                            <li>
+                                <a href="mailto:{{global.email}}">
+                                    <i class="far fa-envelope"></i>
+                                </a>
+                            </li>
+                        {%- endif -%}
+                    </ul>
                 </div>
                 {% include partials/footer %}
             </div>
