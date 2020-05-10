@@ -6,11 +6,6 @@ A template for webnovels using Eleventy.
 
 This readme is mostly for future versions of myself because I'm incredibly forgetful. :D
 
-## todo
-
-* Fix style issue when menu is longer than page
-* CLI command for publishing? (Delete `style.css.map` and `chapters` from dist, then copy to another directory?)
-
 ## Features
 
 * Automagic "Previous Chapter" and "Next Chapter" buttons

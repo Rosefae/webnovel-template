@@ -23,7 +23,11 @@ module.exports = function(eleventyConfig){
     // Copy assets and scripts
 
     eleventyConfig.addPassthroughCopy("src/_scripts");
-    eleventyConfig.addPassthroughCopy("src/_assets");
+    eleventyConfig.addPassthroughCopy("src/_assets")
+
+    // Watch for SCSS changes
+
+    eleventyConfig.addWatchTarget("src/_styles/");
 
     // Handle chapters
 
