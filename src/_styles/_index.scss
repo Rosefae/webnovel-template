@@ -6,14 +6,8 @@
         position: relative;
     }
 
-    header{
-        .booktitle{
-            display: none;
-        }
-    }
-
-    #menubtn-secretcheckbox:checked ~ * > .booktitle{
-        display:inline-block;
+    .booktitle{
+        display: none;
     }
 
     .container{
@@ -54,14 +48,27 @@
         padding:0;
         margin: 0;
         display: flex;
+        flex-wrap: wrap;
+        max-width: 300px;
+        justify-content: center;
         font-size: 1.5rem;
 
         li{
-            margin: 0 0.5em;
+            margin: 0 0.5em 0.3em;
         }
     }
 }
 
 .page-404{
     @extend .page-index;
+
+    .booktitle{
+        display: inline-block;
+    }
+}
+
+%header-open--page-index{
+    & > .booktitle{
+        display:inline-block;
+    }
 }

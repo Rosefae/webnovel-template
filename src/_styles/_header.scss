@@ -6,68 +6,33 @@ $btn-margin: 0.6rem;
 $menu-icon-size:1.3rem;
 $darkmodebtn-width: 2.5rem;
 
-#menubtn-secretcheckbox{
-    @extend .screenreader;
+header{
+    padding-top:1rem;
+    margin-bottom:2.4rem;
+    position:relative;
 
-    &:checked ~ header{
-        position: fixed;
-        padding-left: $side-gutter;
-        padding-right: $side-gutter;
-        background-color: $background;
-        top:0;
-        right:0;
-        left:0;
-        bottom:0;
-        z-index: $menu-zindex - 5;
-        overflow-y: auto;
-        margin-bottom: 0;
-
-        .darkmodebtn{
-            right: $side-gutter;
-        }
-
-        @media screen and (min-width: 768px){
-            position: relative;
-            padding-left:0;
-            padding-right: 0;
-            top: auto;
-            right: auto;
-            left: auto;
-            bottom: auto;
-            background-color: transparent;
-            overflow-y: visible;
-            margin-bottom:2.4rem;
-
-            .darkmodebtn{
-                right:0;
-            }
-
-            .menu-container{
-                position: absolute;
-                top:100%;
-            }
-        }
+    & > * {
+        vertical-align: middle;
     }
 
-    &:checked ~ header > .menubtn{
-        .menuicon{
-            div{
-                &:first-child{
-                    transform: rotate(45deg) scalex(1.1);
-                }
-                &:last-child{
-                    transform: rotate(-45deg) scalex(1.1);
-                }
-                &:nth-child(2){
-                    transform: scaleX(0);
-                    opacity:0;
-                }
-            }
-        }
+    @media screen and (min-width: 768px){
+        padding-top:1.75rem;
     }
 
-    &:checked ~ header > .menu-container{
-        display: block;
+    @media screen and (min-width: 1024px){
+        padding-top: 2.5rem;
+    }
+}
+
+.booktitle{
+    display:inline-block;
+    font-size: 2rem;
+    margin:0;
+    margin-right: $darkmodebtn-width + 1rem;
+
+    a{
+        font-family: $body-font;
+        opacity:1;
     }
 }
 
@@ -102,7 +67,7 @@ $darkmodebtn-width: 2.5rem;
     }
 }
 
-.menubtn:hover, #menubtn-secretcheckbox:focus ~ * > .menubtn{
+%menubtn-hover{
     &::before{
         transform: scale(1);
         opacity: 1;
@@ -111,6 +76,10 @@ $darkmodebtn-width: 2.5rem;
     .menuicon div{
         background: $background;
     }
+}
+
+.menubtn:hover{
+    @extend %menubtn-hover;
 }
 
 .menuicon{
@@ -131,7 +100,6 @@ $darkmodebtn-width: 2.5rem;
         }
         &:last-child{
             transform: translateY(0.5rem);
-            
         }
     }
 }
@@ -144,36 +112,6 @@ $darkmodebtn-width: 2.5rem;
     z-index: $menu-zindex - 1;
     background-color: $background;
     display: none;
-}
-
-header{
-    padding-top:1rem;
-    margin-bottom:2.4rem;
-    position:relative;
-
-    & > * {
-        vertical-align: middle;
-    }
-
-    @media screen and (min-width: 768px){
-        padding-top:1.75rem;
-    }
-
-    @media screen and (min-width: 1024px){
-        padding-top: 2.5rem;
-    }
-
-    .booktitle{
-        display:inline-block;
-        font-size: 2rem;
-        margin:0;
-        margin-right: $darkmodebtn-width + 1rem;
-
-        a{
-            font-family: $body-font;
-            opacity:1;
-        }
-    }
 }
 
 .darkmodebtn{
@@ -194,6 +132,69 @@ header{
     transition: transform 0.3s ease;
 }
 
-.darkmodebtn:hover, #darkmodebtn-secretcheckbox:focus ~ .page-wrapper .darkmodebtn{
+%darkmode-hover{
     transform: translateY(0);
+}
+
+.darkmodebtn:hover{
+    @extend %darkmode-hover;
+}
+
+%header-open{
+    position: fixed;
+    padding-left: $side-gutter;
+    padding-right: $side-gutter;
+    background-color: $background;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index: $menu-zindex - 5;
+    overflow-y: auto;
+    margin-bottom: 0;
+
+    .darkmodebtn{
+        right: $side-gutter;
+    }
+
+    .menuicon{
+        div{
+            &:first-child{
+                transform: rotate(45deg) scalex(1.1);
+            }
+            &:last-child{
+                transform: rotate(-45deg) scalex(1.1);
+            }
+            &:nth-child(2){
+                transform: scaleX(0);
+                opacity:0;
+            }
+        }
+    }
+
+    .menu-container{
+        display: block;
+    }
+
+    @media screen and (min-width: 768px){
+        position: relative;
+        padding-left:0;
+        padding-right: 0;
+        top: auto;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        background-color: transparent;
+        overflow-y: visible;
+        margin-bottom:2.4rem;
+
+        .darkmodebtn{
+            right:0;
+        }
+
+        .menu-container{
+            position: absolute;
+            top:100%;
+        }
+    }
 }

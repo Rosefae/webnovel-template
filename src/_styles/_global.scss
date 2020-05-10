@@ -97,11 +97,7 @@ footer{
     }
 }
 
-#darkmodebtn-secretcheckbox{
-    @extend .screenreader;
-
-    &:checked ~ .page-wrapper{
-        --foreground: #fff;
-        --background: #000;
-    }
+%darkmode--page-wrapper{
+    --foreground: #fff;
+    --background: #000;
 }

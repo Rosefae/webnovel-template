@@ -1,0 +1,31 @@
+// This SCSS file contains the controls for the menu and darkmode buttons to make sure they actually work. Be careful changing this file!
+
+#darkmodebtn-secretcheckbox{
+    @extend .screenreader;
+
+    &:checked ~ .page-wrapper{
+        @extend %darkmode--page-wrapper;
+    }
+}
+
+#darkmodebtn-secretcheckbox:focus ~ * .darkmodebtn{
+    @extend %darkmode-hover;
+}
+
+#menubtn-secretcheckbox{
+    @extend .screenreader;
+
+    &:checked ~ header{
+        @extend %header-open;
+    }
+}
+
+#menubtn-secretcheckbox:focus ~ * .menubtn{
+    @extend %menubtn-hover;
+}
+
+// page-specific overrides
+
+.page-index #menubtn-secretcheckbox:checked ~ header{
+    @extend %header-open--page-index;
+}
