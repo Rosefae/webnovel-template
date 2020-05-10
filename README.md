@@ -31,6 +31,8 @@ This readme is mostly for future versions of myself because I'm incredibly forge
 
 `start`: Runs `serve` and `scss` concurrently.
 
+`cleandist`: Cleans the `dist` folder of files only useful during development to make it ready for primetime.
+
 ## Global Data
 
 All values are required unless otherwise specified.
