@@ -81,31 +81,6 @@ module.exports = function(eleventyConfig){
     }
 }
 
-// function getTieredChapterList(chapters){
-//     // takes a SORTED array of chapters
-//     let output = [];
-//     for(i=0;i<chapters.length;i++){
-//         if (isSuperChapter(chapters[i])){
-//             let newSuperChapter = {
-//                 chapter: chapters[i],
-//                 children: []
-//             }
-//             output.push(newSuperChapter);
-//         }
-//         else{
-//             output[output.length-1].children.push(chapters[i]);
-//         }
-//     }
-
-//     function isSuperChapter(ch){
-//         if (ch.data.chapter.number==0 || !Number.isInteger(ch.data.chapter.number)){
-//             return true;
-//         }
-//         else return false;
-//     }
-// }
-
-
 function explicitlyOrder(arr, orderKey){
     let orderingDict = {};
 

@@ -15,8 +15,11 @@ permalink: 404.html
             <div class="content-wrapper">
                 {% include partials/header %}
                 <div class="container">
-                    <h1>404 &mdash; You lost?</h1>
-                    <p class="no-indent">Looks like the page you were trying to go to doesn't exist. <a href="{{collections.index[0].url}}">Back to home?</a></p>
+                    <h1>{{ui-text.404.heading}}</h1>
+                    <p class="no-indent">
+                        {{ui-text.404.bodyText}}
+                        <a href="{{collections.index[0].url}}">{{ui-text.404.linkText}}</a>
+                    </p>
                 </div>
                 {% include partials/footer %}
             </div>

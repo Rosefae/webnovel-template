@@ -1,0 +1,22 @@
+{
+    "email":{
+        "address":"rose@byanyothername.me",
+        "alt-text":"Email me"
+    },
+    "rss":{
+        "showRss":true,
+        "alt-text":"Subscribe via RSS"
+    },
+    "socialLinks":[
+        {
+            "icon":"fab fa-twitter",
+            "url":"https://twitter.com/ByAnyOtherName_",
+            "alt-text":"Follow me on Twitter"
+        },
+        {
+            "icon":"fab fa-patreon",
+            "url":"#",
+            "alt-text":"Support me on Patreon"
+        }
+    ]
+}

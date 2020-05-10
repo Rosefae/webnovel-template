@@ -44,10 +44,11 @@ All values are required unless otherwise specified.
 * `url` (required for RSS feed; otherwise optional): The base URL of where you will be hosting your webnovel. Be sure to include the trailing slash.
 * `numberStyle`: The style you would like to use for chapter numbers. Supported values: `arabic`, `roman`, and `none`. Can be overriden for individual chapters by placing a `numberStyle` attribute in the chapter's frontmatter data.
 * `mirrors` (optional): An array of mirror objects. See "Adding Mirrors" section.
-* `showRss` (optional): Whether to display the link to the RSS feed.
-* `socialLinks` (optional): An array of social media links. The `platform` attribute determines which Font Awesome icon to use.
-* `email` (optional): An email address to be included with the social media links.
 * `isComplete` (optional): Removes the "Latest chapter" link from the homepage when set to anything other than `false`.
+
+There is also a `_data/social.json` file which handles all the social media links on the homepage. Everything in this file is optional. The `icon` property, where it exists, refers to the classnames used by FontAwesome.
+
+Any UI text (e.g. "Next Chapter") can be set/changed in `_data/ui-text.json`.
 
 ## Adding Content
 

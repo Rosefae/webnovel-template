@@ -1,0 +1,20 @@
+{
+    "header":{
+        "menuLabel":"Menu",
+        "darkmodeLabel":"Toggle Dark Mode"
+    },
+    "homepage":{
+        "continueReading":"Continue reading",
+        "startReading":"Start from the beginning",
+        "latestChapter":"Latest chapter"
+    },
+    "read":{
+        "prevChapter":"Previous Chapter",
+        "nextChapter":"Next Chapter"
+    },
+    "404":{
+        "heading":"404 &mdash; You lost?",
+        "bodyText":"Looks like the page you were trying to go to doesn't exist.",
+        "linkText":"Back to home?"
+    }
+}

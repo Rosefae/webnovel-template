@@ -18,38 +18,38 @@ tags: index
                     <nav class="front-page-nav">
                         <ul>
                             <li id="currChapterLink" hidden>
-                                <a href="#">Continue Reading</a>
+                                <a href="#">{{ui-text.homepage.continueReading}}</a>
                             </li>
                             <li>
-                                <a href="read/{{collections.rawChapters[0].data.number}}/">Start from the beginning</a>
+                                <a href="read/{{collections.rawChapters[0].data.number}}/">{{ui-text.homepage.startReading}}</a>
                             </li>
                             {%- unless global.isComplete -%}
                             <li>
                                 {% assign latest = collections.rawChapters.length | minus: 1 %}
-                                <a href="read/{{collections.rawChapters[latest].data.number}}/">Latest chapter</a>
+                                <a href="read/{{collections.rawChapters[latest].data.number}}/">{{ui-text.homepage.latestChapter}}</a>
                             </li>
                             {%- endunless -%}
                         </ul>
                     </nav>
                     <ul class="social-links">
-                        {%- if global.showRss -%}
+                        {%- if social.rss.showRss -%}
                             <li>
-                                <a href="rss.xml">
-                                    <i class="fas fa-rss"></i>
+                                <a href="rss.xml" aria-label="{{social.rss.alt-text}}">
+                                    <i class="fas fa-rss" aria-hidden="true"></i>
                                 </a>
                             </li>
                         {%- endif -%}
-                        {%- for social in global.socialLinks -%}
+                        {%- for socialLink in social.socialLinks -%}
                             <li>
-                                <a href="{{social.url}}">
-                                    <i class="fab fa-{{social.platform}}"></i>
+                                <a href="{{socialLink.url}}" aria-label="{{socialLink.alt-text}}">
+                                    <i class="{{socialLink.icon}}" aria-hidden="true"></i>
                                 </a>
                             </li>
                         {%- endfor -%}
-                        {%- if global.email -%}
+                        {%- if social.email -%}
                             <li>
-                                <a href="mailto:{{global.email}}">
-                                    <i class="far fa-envelope"></i>
+                                <a href="mailto:{{social.email.address}}" aria-label="{{social.email.alt-text}}">
+                                    <i class="far fa-envelope" aria-hidden="true"></i>
                                 </a>
                             </li>
                         {%- endif -%}
