@@ -10,6 +10,21 @@ $darkmodebtn-zindex:200;
 $menu-zindex: 100;
 
 $side-gutter: var(--side-gutter, 10vw);
+$min-width: 360px;
+$max-width: 1000px;
+
+:root{
+    --side-gutter: 10vw;
+    @media screen and (max-width: #{$min-width/0.8}){
+        --side-gutter: calc((100vw - #{$min-width})/2);
+    }
+    @media screen and (max-width: #{$min-width + 20px}){
+        --side-gutter: 15px;
+    }
+    @media screen and (min-width: #{$max-width/0.8}){
+        --side-gutter: calc((100vw - #{$max-width})/2);
+    }
+}
 
 %screenreader{
     position:absolute;

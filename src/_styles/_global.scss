@@ -22,11 +22,24 @@ html{
     color: $foreground;
     font-family: $body-font;
     z-index:0;
+
+    &::before{
+        content:"";
+        position: fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background: $background;
+        z-index: -1000;
+    }
 }
 
 main{
     margin-top: 1.4rem;
     margin-bottom: 1.4rem;
+    margin-left: $side-gutter;
+    margin-right: $side-gutter;
 }
 
 a{
@@ -81,12 +94,20 @@ h1{
     }
 }
 
+h2{
+    font-weight: normal;
+    font-size: 1.4rem;
+    margin-top: 1.4em;
+}
+
 footer{
     font-family: $ui-font;
     color: $foreground;
     font-size: 0.7rem;
     text-align: center;
     margin-top: 2rem;
+    margin-left: $side-gutter;
+    margin-right: $side-gutter;
     padding-bottom: 2rem;
     opacity: 0.7;
     p{

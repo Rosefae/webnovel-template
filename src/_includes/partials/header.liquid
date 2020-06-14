@@ -2,8 +2,10 @@
 <header>
     <label class="btn menubtn" for="menubtn-secretcheckbox" role="button" aria-label="{{ui-text.header.menuLabel}}"><div class="menuicon" aria-hidden="true"><div></div><div></div><div></div></div></label>
     <span class="booktitle"><a href="{{collections.index[0].url}}">{{ global.title }}</a></span>
-    <div class="menu-container">  
-        {% include partials/tableofcontents %}
+    <div class="menu-container">
+    	<div class="menu">
+        	{% include partials/tableofcontents %}
+        </div>
     </div>
     
     <label class="darkmodebtn" for="darkmodebtn-secretcheckbox" role="button" aria-label="{{ui-text.header.darkmodeLabel}}">

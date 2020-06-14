@@ -5,7 +5,7 @@ $menu-icon-size:1.3rem;
 $darkmodebtn-width: 2.5rem;
 
 header{
-    padding-top:1rem;
+    padding:1rem $side-gutter 0;
     margin-bottom:2.4rem;
     position:relative;
 
@@ -103,13 +103,31 @@ header{
 }
 
 .menu-container{
-    max-width: 100%;
-    min-height: 100%;
-    width: 350px;
-    padding: 0 $btn-size + 0.5rem;
+    position: absolute;
+    top:100%;
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - 100%);
+    overflow: auto;
+    padding: 0 #{$side-gutter};
     z-index: $menu-zindex - 1;
-    background-color: $background;
-    display: none;
+    transition: clip-path 0.5s ease;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+
+    .menu{
+        background-color: $background;
+        padding: 0 calc(#{$btn-size} + 0.5rem);
+    }
+
+    nav{
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s ease 0.3s;
+    }
+
+    @media screen and (min-width: 768px){
+        max-width: calc(420px + #{$side-gutter});
+    }
 }
 
 .darkmodebtn{
@@ -119,7 +137,7 @@ header{
     justify-content: center;
     align-items: center;
     top: 0;
-    right: 0;
+    right: $side-gutter;
     z-index: $darkmodebtn-zindex;
     width: $darkmodebtn-width;
     height: 5rem;
@@ -139,21 +157,6 @@ header{
 }
 
 %header-open{
-    position: fixed;
-    padding-left: $side-gutter;
-    padding-right: $side-gutter;
-    background-color: $background;
-    top:0;
-    right:0;
-    left:0;
-    bottom:0;
-    z-index: $menu-zindex - 5;
-    overflow-y: auto;
-    margin-bottom: 0;
-
-    .darkmodebtn{
-        right: $side-gutter;
-    }
 
     .menuicon{
         div{
@@ -171,28 +174,11 @@ header{
     }
 
     .menu-container{
-        display: block;
-    }
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 
-    @media screen and (min-width: 768px){
-        position: relative;
-        padding-left:0;
-        padding-right: 0;
-        top: auto;
-        right: auto;
-        left: auto;
-        bottom: auto;
-        background-color: transparent;
-        overflow-y: visible;
-        margin-bottom:2.4rem;
-
-        .darkmodebtn{
-            right:0;
-        }
-
-        .menu-container{
-            position: absolute;
-            top:100%;
+        nav{
+            visibility: visible;
+            opacity: 1;
         }
     }
 }
