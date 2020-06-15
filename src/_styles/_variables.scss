@@ -1,4 +1,6 @@
-$foreground: var(--foreground, #000);
+$off-black: #101111;
+
+$foreground: var(--foreground, #{$off-black});
 $background: var(--background, #fff);
 
 $body-font: 'Crimson Text', serif;
