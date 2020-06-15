@@ -114,19 +114,18 @@ header{
     transition: clip-path 0.5s ease;
     clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
 
-    .menu{
-        background-color: $background;
-        padding: 0 calc(#{$btn-size} + 0.5rem);
-    }
-
     nav{
         visibility: hidden;
         opacity: 0;
         transition: opacity 0.2s ease 0.3s;
     }
+}
 
+.menu{
+    background-color: $background;
+    padding: 0 calc(#{$btn-size} + 0.5rem);
     @media screen and (min-width: 768px){
-        max-width: calc(420px + #{$side-gutter});
+        max-width: 420px;
     }
 }
 
