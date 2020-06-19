@@ -19,5 +19,9 @@
         justify-content: space-between;
         font-size: 0.9rem;
         margin: 0 $side-gutter;
+
+        a{
+            padding-bottom: 2px;
+        }
     }
 }
