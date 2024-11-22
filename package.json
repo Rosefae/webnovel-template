@@ -28,10 +28,10 @@
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "markdown-it-attrs": "^3.0.2",
-    "node-sass": "^4.14.1"
+    "node-sass": "^9.0.0"
   },
   "dependencies": {
     "concurrently": "^4.1.0"
