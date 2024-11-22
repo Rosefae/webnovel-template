@@ -18,6 +18,10 @@ module.exports = function(eleventyConfig){
         rightDelimiter: '-]'
     }
 
+    eleventyConfig.setLiquidOptions({
+        dynamicPartials: false
+    });
+
     eleventyConfig.setLibrary("md", markdownIt(mdOptions).use(markdownItAttrs, mdAttrsOptions));
 
     // Copy assets and scripts
